@@ -9,8 +9,11 @@ import Image from 'next/image'
 interface Open {
     open: boolean
     setOpen: Dispatch<SetStateAction<boolean>>
+    setClicked: Dispatch<SetStateAction<boolean>>
+    clicked: boolean,
+    lang: string
 }
-const Navigation = ({ open, setOpen }: Open) => {
+const Navigation = ({ open, setOpen, setClicked, clicked, lang }: Open) => {
     return (
         <div style={open === true ? {
             transition: "0.2s",
@@ -33,6 +36,27 @@ const Navigation = ({ open, setOpen }: Open) => {
                         </li>
                     })}
                 </ul>
+                <div className={styles.translator2}>
+                    <button onClick={() => {
+                        setClicked(!clicked)
+                    }}>{lang}</button>
+                    <div style={clicked === false ? {
+                        opacity: 0,
+                        zIndex: -100,
+                        transition: "0.4s"
+                    } : {
+                        opacity: 1,
+                        zIndex: 1000,
+                        transition: "0.4s"
+                    }} className={styles.selectLanguage}>
+                        <Link href={'/ru'}>
+                            <Image src={"/icons/ru.svg"} alt='ru flag icon' width={40} height={40} />
+                        </Link>
+                        <Link href={'/uz'}>
+                            <Image src={"/icons/uz.svg"} alt='ru flag icon' width={40} height={40} />
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     )

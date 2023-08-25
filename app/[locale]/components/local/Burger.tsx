@@ -10,7 +10,7 @@ const Burger = ({ open, setOpen }: IOpen) => {
     const [change, setChange] = useState<boolean>(false)
     return (
         <div className={styles.burger}>
-            <div  className={change === false ? styles.container : styles.change} onClick={(e) => {
+            <div className={open === false ? styles.container : styles.change} onClick={(e) => {
                 setChange(!change)
                 setOpen(!open)
             }}>

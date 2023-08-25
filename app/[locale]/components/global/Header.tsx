@@ -16,13 +16,6 @@ const Header = () => {
     const pathName = usePathname()
     const t = useTranslations("Header")
     const [clicked, setClicked] = useState<boolean>(false)
-    useEffect(() => {
-        if (open === true) {
-            document.body.style.overflow = "hidden"
-        } else {
-            document.body.style.overflow = "auto"
-        }
-    }, [open])
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
     const [lastScrollPosition, setLastScrollPosition] = useState(0);
     useEffect(() => {
@@ -32,6 +25,7 @@ const Header = () => {
                 setIsHeaderVisible(false);
             } else if (currentScrollPosition < lastScrollPosition && !isHeaderVisible) {
                 setIsHeaderVisible(true);
+                setOpen(false)
             }
             setLastScrollPosition(currentScrollPosition);
         };
@@ -108,7 +102,7 @@ const Header = () => {
                 }} >
                     <Burger setOpen={setOpen} open={open} />
                 </div>
-                <Navigation setOpen={setOpen} open={open} />
+                <Navigation clicked={clicked} lang={t("lang")} setClicked={setClicked} setOpen={setOpen} open={open} />
             </div>
         </header>
     )
