@@ -1,0 +1,151 @@
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #dedede;
+  position: fixed;
+  background: #fff;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  width: 1180px;
+  padding: 4.5px 0;
+  display: flex;
+  align-items: center;
+  gap: 3.625rem;
+}
+
+.navigation {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background: #fff;
+}
+
+.navigation > li {
+  display: inline-block;
+  position: relative;
+  transition: 0.2s linear;
+}
+
+.navigation > li:hover > a {
+    color: #46247c;
+    transition: 0.2s linear;
+}
+
+.navigation > li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  top: 1.4rem;
+  border-radius: 200px;
+  left: 0;
+  background-color: #46247c;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navigation > li:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navigation > li > a {
+  font-size: 17px;
+  color: #787878;
+  transition: 0.2s linear;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  display: none;
+}
+.translator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.translator > button {
+  width: 50px;
+  height: 30px;
+  font-size: 17px;
+  border: 3px solid #46247c;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.selectLanguage {
+  display: flex;
+  gap: 1rem;
+  box-shadow: 0px 1px 17px 0px rgba(0, 0, 0, 0.14);
+  padding: 5px;
+  top: 100%;
+  background: linear-gradient(156deg, #46247c 0%, #a66fff 0%, #46247c 55.21%);
+  position: absolute;
+  border-radius: 5px;
+}
+
+.selectLanguage > a > img {
+  height: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+    padding: 0 1%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .navigation {
+    display: none;
+  }
+  .navbar {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    left: 0;
+  }
+  .navContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 10px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: #fff;
+  }
+
+  .navContainer > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navContainer a {
+    font-size: 17px;
+    color: #787878;
+    transition: 0.2s linear;
+    scroll-behavior: smooth;
+  }
+}

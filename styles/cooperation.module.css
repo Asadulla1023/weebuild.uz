@@ -1,0 +1,195 @@
+.cooperation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #F2F2F2;
+}
+
+.container {
+    width: 1180px;
+    padding: 5.5rem 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.cooperationTitle h1 {
+    text-align: center;
+    font-size: 56px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #454545;
+}
+
+.cooperationCard {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card {
+    cursor: pointer;
+    width: 350px;
+    height: 250px;
+    background-color: #ffff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    transition: .5s ease-in-out;
+}
+
+.card:hover {
+    cursor: pointer;
+    transition: 0.2s linear;
+    box-shadow: 0px 1px 17px 0px rgba(68, 33, 123, 0.73) !important;
+}
+
+.card img {
+    width: 330px;
+    height: 200px;
+}
+
+@media screen and (max-width: 1500px) {
+    .container {
+        width: 100%;
+    }
+
+    .cooperationCard {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin: 50px auto;
+    }
+
+    .card {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        width: 100%;
+    }
+
+    .cardTitle {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:840px) {
+    .cooperationTitle h1 {
+        font-size: 35px !important;
+        text-transform: uppercase;
+    }
+
+    .card {
+        width: 36%;
+        height: auto;
+    }
+
+    .card img {
+        width: 250px;
+        align-items: center;
+        display: flex;
+        /* object-fit: cover; */
+    }
+}
+
+@media screen and (max-width:700px) {
+    .card {
+        width: 35%;
+        height: auto;
+    }
+
+    .card img {
+        width: 200px;
+        align-items: center;
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .container {
+        width: 100%;
+    }
+
+    .cooperationTitle h1 {
+        font-size: 40px;
+    }
+
+    .container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .container {
+        width: 100%;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .card img {
+        width: 300px;
+    }
+
+    .card {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .card img {
+        width: 340px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 416px) {
+    .card img {
+        width: 70%;
+    }
+
+    .card {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .container {
+        width: 100%;
+    }
+
+    .cooperationTitle h1 {
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .container {
+        width: 100%;
+    }
+}

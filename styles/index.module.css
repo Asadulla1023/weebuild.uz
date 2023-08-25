@@ -1,0 +1,96 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contact {
+  position: fixed;
+  background: transparent;
+  border: none;
+  top: 90%;
+  left: 100%;
+  margin-left: -100px;
+  width: fit-content;
+  cursor: pointer;
+  z-index: 1000;
+  background: #44217b;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 1px 100px 30px rgba(43, 1, 63, 0.281);
+  align-items: center;
+  border-radius: 100px;
+  margin-top: -40px;
+  animation: animationForContact 1s infinite;
+}
+
+.noneAnimation {
+  animation: none !important;
+}
+
+.contact:hover {
+  background: #43217b;
+}
+
+@keyframes animationForContact {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.contact > img {
+  border-radius: 100px;
+}
+
+.modalContact {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+}
+
+.subModal {
+  position: fixed;
+  top: 100%;
+  margin-top: -400px;
+  height: 350px;
+  border-radius: 100px;
+  left: 100%;
+  margin-left: -100px;
+  background: rgba(40, 20, 72, 0.30);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  height: 10px;
+  background: linear-gradient(-90deg,#44217b, #691eff);
+  transform-origin: 0%;
+}
+.circle {
+  background: #44217b;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 1px 100px 30px rgba(43, 1, 63, 0.281);
+  align-items: center;
+  border-radius: 100px;
+  cursor: pointer;
+}

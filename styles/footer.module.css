@@ -1,0 +1,98 @@
+.footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 1180px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.footerSection {
+    border-top: 1px solid #DEDEDE;
+    width: 100%;
+    padding: 28px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.group h3 {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.group p{
+    font-size: 18px;
+    font-weight: 400;
+    color: #787878;
+}
+
+.settings {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    width: 233px;
+    color: #787878;
+}
+
+.call {
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+}
+
+.call a {
+    font-size: 18px;
+    font-weight: 400;
+    color: #787878;
+}
+
+.location {
+    cursor: pointer;
+    display: flex;
+    gap: 15px;
+}
+
+.location a {
+    width: 226px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #787878;
+}
+
+
+@media screen and (max-width: 990px) {
+    .container {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footerSection {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: fit-content;
+        gap: 30px;
+    }
+
+    .location {
+        gap: 1px;
+    }
+}

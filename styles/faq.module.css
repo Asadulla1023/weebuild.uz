@@ -1,0 +1,132 @@
+.faq {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: #F2F2F2;
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+}
+
+.container {
+    width: 1180px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.faqTitle h1 {
+    text-align: center;
+    font-size: 56px;
+    font-weight: 400;
+    color: #454545;
+}
+  
+.quests {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 42px;
+  }
+  
+  .quest {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 20px;
+    background: #fff;
+    transition: 0.4s;
+  }
+  
+  .quest h3 {
+    font-size: 19px;
+  }
+  
+  .quest p {
+    color: #888;
+    font-size: 19px;
+  }
+  
+  .quest img {
+    width: 17px;
+    height: 10px;
+  }
+  
+  .questTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .questTop button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.quest:hover {
+    box-shadow: 0px 1px 17px 0px rgba(68, 33, 123, 0.73) !important;
+}
+
+.dn {
+    height: 0;
+    z-index: -1000;
+    transition: 0.1s linear;
+    text-align: center;
+    opacity: 0;
+    padding-right: 41px;
+  }
+  
+  .just {
+    transition: 0.3s ease-in-out;
+    margin-top: 1rem;
+    padding-right: 41px;
+  }
+
+@media screen and (max-width: 1250px) {
+    .container {
+        width: 100%;
+        padding: 76px 20px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+
+    .container {
+        width: 100%;
+    }
+
+    .faqTitle h1 {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width:840px) {
+    .faqTitle h1 {
+      font-size: 35px !important;
+    }
+}  
+
+@media screen and (max-width: 530px) {
+
+    .container {
+        padding: 20px 20px;
+        width: 100%;
+    }
+
+    .faqTitle h1 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .container {
+        width: 100%;
+    }
+
+    .faqTitle h1 {
+        font-size: 30px;
+    }
+}

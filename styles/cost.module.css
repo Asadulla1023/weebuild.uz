@@ -1,0 +1,805 @@
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.content > h1 {
+  color: #454545;
+  text-align: right;
+  font-family: Futura PT;
+  font-size: 62px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.content > p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #787878;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.controller {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(156deg, #46247c 0%, #a66fff 0%, #46247c 55.21%);
+  filter: drop-shadow(0px 4px 4px #1e1132);
+  border-radius: 100px;
+  color: #fff;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px 1px 17px 0px rgba(202, 202, 202, 0.25);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.selection > .container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.container2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.selection h3 {
+  color: #454545;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+.checks,
+.checksRep {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.checkbox {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  box-shadow: 0px 1px 17px 0px rgba(87, 87, 87, 0.14);
+  border-radius: 20px;
+  transition: 0.5s linear;
+}
+
+.checkboxRep {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  box-shadow: 0px 1px 17px 0px rgba(87, 87, 87, 0.14);
+  border-radius: 20px;
+  transition: box-shadow 0.5s linear;
+  -moz-transition: box-shadow 0.5s linear;
+  /* Firefox 4 */
+  -webkit-transition: box-shadow 0.5s linear;
+  /* Safari and Chrome */
+  -o-transition: box-shadow 0.5s linear;
+  /* Opera */
+  -ms-transition: box-shadow 0.5s linear;
+  /* Explorer 10 */
+}
+
+.boxShadowRep {
+  transition: 0.2s linear;
+  box-shadow: 0px 1px 17px 0px rgba(68, 33, 123, 0.73) !important;
+  transition: box-shadow 0.2s linear;
+  -moz-transition: box-shadow 0.2s linear;
+  /* Firefox 4 */
+  -webkit-transition: box-shadow 0.2s linear;
+  /* Safari and Chrome */
+  -o-transition: box-shadow 0.2s linear;
+  /* Opera */
+  -ms-transition: box-shadow 0.2s linear;
+  /* Explorer 10 */
+}
+
+.boxShadow {
+  transition: 0.2s linear;
+  box-shadow: 0px 1px 17px 0px rgba(68, 33, 123, 0.73) !important;
+}
+
+.checkbox > p,
+.checkboxRep > p {
+  color: #787878;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: normal;
+  margin: auto;
+}
+
+.checkboxInput {
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkboxInput > p {
+  color: #787878;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 450;
+  width: 190px;
+  line-height: normal;
+}
+
+.checkboxRep:hover {
+  transition: 0.2s linear;
+  box-shadow: 0px 1px 17px 0px rgba(68, 33, 123, 0.73) !important;
+}
+
+.type {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.type > h3 {
+  font-size: 19px !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.checkboxInput > input[type="checkbox"] {
+  border-radius: 5px;
+  width: 21px;
+  height: 21px;
+  background: #f2f2f2;
+  border: none;
+  outline: none;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.2s linear;
+}
+
+.checkbox:hover {
+  box-shadow: 0px 1px 17px 0px rgba(68, 33, 123, 0.73) !important;
+  transition: 0.2s linear;
+}
+
+.images {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.images img {
+  width: 380px;
+}
+
+.selection a {
+  margin-top: 2rem;
+  border: 5px solid #44217b;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 20px;
+  height: 80px;
+  background-image: linear-gradient(-90deg, #44217b, #500bc0);
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: 0.4s;
+  font-size: 19px;
+  cursor: pointer;
+  width: 300px;
+}
+
+.selection button:hover {
+  box-shadow: none;
+  opacity: 0.9;
+  background-size: 100% 100%;
+  color: #fff;
+  transition: 0.2s linear;
+}
+
+.sectS {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.sect {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sect > h4 {
+  color: #454545;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 450;
+  text-align: center;
+  line-height: normal;
+}
+
+.sect:last-child {
+  margin-top: 3rem;
+}
+
+.selectImageOfLivingRoom {
+  display: flex;
+  width: fit-content;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.selectImage,
+.selectImageS {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 71px;
+  height: 69px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 0px 1px 17px 0px rgba(87, 87, 87, 0.14);
+  transition: 0.5s ease-in-out;
+}
+
+.selectImage:hover,
+.selectImageS {
+  transition: 0.5s ease-in-out;
+  box-shadow: 0px 1px 17px 0px #44217b;
+}
+
+.val {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 35px;
+}
+
+.selectImage > p,
+.selectImageS > p {
+  color: #454545;
+  font-size: 35px !important;
+}
+
+.roomType {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.totalArea {
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.totalArea > h3 {
+  font-size: 19px;
+  text-align: center;
+}
+
+.rooms {
+  display: flex;
+  flex-direction: column;
+}
+
+.rooms > h3 {
+  font-size: 19px !important;
+}
+
+.rooms .seletedRooms {
+  background: #fbfbfb;
+  outline: none;
+  border: none;
+  /* padding: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-size: 20px;
+  width: 100px;
+  height: 50px;
+  box-shadow: 0px 1px 17px 0px rgba(87, 87, 87, 0.14);
+  cursor: pointer;
+}
+
+.cardPriceList {
+  display: flex;
+  justify-content: space-between;
+  height: 620px;
+  gap: 1rem;
+}
+
+.cardPriceItem {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  box-shadow: 0px 1px 17px 0px rgba(87, 87, 87, 0.14);
+  border-radius: 20px;
+}
+
+.cardPriceItem img {
+  width: 380px;
+}
+
+.cardPriceItem > .animate {
+  width: 100%;
+  margin-top: auto;
+  border-radius: 20px;
+  height: 80px;
+  transition: 0.4s;
+  font-weight: 450;
+  font-size: 20px;
+  border: 5px solid #44217b;
+  border-radius: 20px;
+  cursor: pointer;
+  animation: Animation 1.5s infinite;
+}
+
+.animate:hover{
+  animation: none;
+  background: transparent;
+  color: #44217b !important;
+  transition: 0.4s;
+  font-weight: 450;
+}
+
+.noneAnimation {
+  animation: Animation 1.5s infinite;
+  margin-top: auto;
+  transition: 0.4s;
+  font-size: 20px;
+  font-weight: 450;
+  color: #44217b;
+  background: transparent;
+  height: 80px;
+  width: 100%;
+  border-radius: 20px;
+  border: 5px solid #44217b;
+}
+
+.cardPriceItem > .animate:hover {
+  background-size: 100% 100%;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0px 1px 17px 0px rgba(202, 202, 202, 0.25);
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.desc > p {
+  width: 260px;
+  text-align: center;
+  font-size: 18px;
+  color: #787878;
+}
+
+.desc > h3 {
+  font-size: 24px;
+  font-weight: 450;
+  color: #454545;
+}
+
+.desc > .line {
+  width: 55px;
+  height: 2px;
+  background: #000;
+}
+
+.selectRoom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 70%;
+  justify-content: center;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0px 1px 17px 0px rgba(53, 50, 50, 0.616);
+  border-radius: 10px;
+}
+
+.selectRoom > .selectImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.selectRoom > .selectImage > p {
+  font-size: 16px !important;
+}
+
+@keyframes Animation {
+  0% {
+    box-shadow: 0px 1px 17px 0px #252525ba !important;
+    background: #44217b;
+    color: #fff;
+    font-weight: 450;
+  }
+  50% {
+    box-shadow: 0px 1px 17px 0px #44217bba !important;
+    background: #fff;
+    color: #44217b;
+    font-weight: 450;
+  }
+  100% {
+    box-shadow: 0px 1px 17px 0px #252525ba !important;
+    background: #44217b;
+    color: #fff;
+    font-weight: 450;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .cardPriceList {
+    height: 550px;
+  }
+
+  .cardPriceItem {
+    width: 300px;
+  }
+
+  .cardPriceItem img {
+    width: 100%;
+    height: auto;
+  }
+
+  .desc > h3 {
+    font-size: 20px;
+  }
+
+  .cardPriceItem > button {
+    padding: 25px 0px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .roomType {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .checkboxInput > p {
+    width: auto;
+  }
+  .checksRep {
+    flex-wrap: wrap;
+  }
+  .checkboxRep {
+    width: 45%;
+    height: fit-content;
+    padding-bottom: 1rem;
+  }
+  .checkboxRep > img {
+    width: 100%;
+    height: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  .checkboxRep > p {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .content h1 {
+    font-size: 30px !important;
+  }
+}
+
+/* @media screen and (max-width: 870px) {
+  .content h1 {
+    font-size: 35px !important;
+  }
+} */
+
+@media screen and (max-width: 840px) {
+  .checks {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .selection {
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .selection h3 {
+    font-size: 23px;
+  }
+  .checkbox {
+    width: 45%;
+    height: auto;
+    padding-bottom: 1rem;
+  }
+  .checkbox > img {
+    width: 100%;
+    height: auto;
+  }
+  .checkbox > p,
+  .checkboxRep > p {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .content h1 {
+    font-size: 30px !important;
+  }
+  .multiRange {
+    width: 100%;
+  }
+
+  .sect img {
+    width: 100%;
+    height: auto;
+  }
+  .container {
+    gap: 0.5rem !important;
+  }
+  .selection button {
+    width: 50%;
+    height: 60px;
+    font-size: 16px;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .content h1 {
+    font-size: 25px !important;
+  }
+
+  .circle {
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+  }
+
+  .line {
+    width: 60px;
+  }
+
+  .checkboxRep > img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .content h1 {
+    font-size: 20px !important;
+  }
+
+  .circle {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .line {
+    width: 30px;
+  }
+
+  .selection {
+    padding: 1rem 0;
+  }
+  .selection button {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .selectImage,
+  .selectImageS {
+    width: 60px;
+    height: 60px;
+    /* font-size: 20px !important; */
+  }
+
+  .checkbox > p,
+  .checkboxRep > p {
+    font-size: 13px;
+  }
+  .controller {
+    gap: 0.3rem;
+  }
+  .control {
+    gap: 0.3rem;
+  }
+
+  .content h1 {
+    font-size: 18px !important;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .images img {
+    width: 100% !important;
+  }
+  .checkboxRep {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 418px) {
+  .selectImage,
+  .selectImageS {
+    width: 48px;
+    height: 46px;
+    font-size: 15px !important;
+    border-radius: 10px;
+  }
+
+  .checks {
+    flex-direction: column;
+  }
+  .checkbox {
+    width: 70%;
+  }
+
+  .selection h3 {
+    font-size: 25px;
+  }
+
+  .checks img {
+    width: 100% !important;
+    height: auto;
+  }
+
+  .val {
+    font-size: 25px;
+  }
+
+  .circle {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+/* 4 - section */
+
+@media screen and (max-width: 1160px) {
+  .container2 {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 10px 0;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .cardPriceList {
+    height: 520px;
+  }
+
+  .cardPriceItem {
+    width: 100%;
+  }
+
+  .cardPriceItem img {
+    width: 100%;
+    height: auto;
+  }
+
+  .desc > h3 {
+    font-size: 18px;
+  }
+
+  .desc > p {
+    font-size: 15px !important;
+  }
+
+  .cardPriceItem > button {
+    padding: 25px 0px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .cardPriceList {
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 400px !important;
+    justify-content: center;
+  }
+
+  .cardPriceItem {
+    width: 300px !important;
+  }
+
+  .cardPriceItem img {
+    width: 300px !important;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .cardPriceList {
+    margin-bottom: 900px !important;
+  }
+
+  .cardPriceItem {
+    width: 320px !important;
+  }
+
+  .cardPriceItem img {
+    width: 320px !important;
+    height: auto;
+  }
+}

@@ -1,0 +1,42 @@
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 5.5rem;
+  padding-bottom: 3rem;
+  transition: 0.2s linear;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1180px;
+  gap: 2rem;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+    padding: 0 1%;
+  }
+  .container h1 {
+    font-size: 48px !important;
+  }
+  /* .container p {
+    font-size: 17px !important;
+  } */
+}
+
+@media screen and (max-width:840px) {
+  .container h1 {
+    font-size: 35px !important;
+  }
+  .container p {
+    font-size: 18px;
+  }
+}
+

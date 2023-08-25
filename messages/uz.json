@@ -1,0 +1,212 @@
+{
+  "Header": {
+    "Array": [
+      "Kompaniya haqida",
+      "Afzalliklar",
+      "Xarajatlarni hisoblash",
+      "Dizayn",
+      "Ular biz bilan hamkorlik qiladi",
+      "TSS",
+      "Kontaktlar"
+    ],
+    "lang": "Til"
+  },
+
+  "Designer": {
+    "title": "Dizayner kalit ta'mirlash",
+    "subtitle": "Biz sizning ishtirokingizsiz, o'z vaqtida, shartnoma bo'yicha va belgilangan narxda bajaramiz",
+    "button": "LOYIHANI MUHOKAMA QILISH"
+  },
+
+  "Company": {
+    "title": "Kompaniya haqida",
+    "description": "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, obyektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish. Biz ob'ektni ta'minlash va ishni tashkil etish bilan bog'liq barcha masalalarni hal qilamiz. Shunday qilib, biz sizga qimmatli vaqt va asablarni tejashga yordam beramiz. Shuningdek, ta'mirlash ishlari davomida barcha istalmagan hodisalar yuzaga kelmasligi uchun. Bir oydan boshlab ishlarni bajarishning minimal muddati. Yuqori sifatli ish."
+  },
+
+  "AboutUs": {
+    "title": "Biz haqimizda",
+    "Cards": [
+      {
+        "title": "Jamoada 20 dan ortiq mutaxassislar ishlaydi.",
+        "desc": "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, ob'ektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish.",
+        "image": ""
+      },
+      {
+        "title": "Biz shartnoma asosida qat'iy ishlaymiz.",
+        "desc": "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, ob'ektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish. ",
+        "image": ""
+      },
+      {
+        "title": "1-3 yildan boshlab bajarilgan ishlar uchun kafolat.",
+        "desc": "Binoni o'lchash, loyiha loyihasini ishlab chiqish, ob'ektni foydalanishga topshirilgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish"
+      },
+      {
+        "title": "O'z vaqtida tugatish.",
+        "desc": "Binoni o'lchash, loyiha loyihasini ishlab chiqish, ob'ektni foydalanishga topshirilgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish"
+      },
+      {
+        "title": "Professional hunarmandlar jamoasi.",
+        "desc": "Binoni o'lchash, loyiha loyihasini ishlab chiqish, ob'ektni foydalanishga topshirilgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish"
+      },
+      {
+        "title": "Shaffoflik.",
+        "desc": "Binoni o'lchash, loyiha loyihasini ishlab chiqish, ob'ektni foydalanishga topshirilgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish"
+      }
+    ]
+  },
+
+  "Calculation": {
+    "title": "Dastlabki xarajatlarni hisoblash.",
+    "subtitle1": "Xona turi",
+    "cards": [
+      {
+        "image": "",
+        "title": "Yangi bino"
+      },
+      {
+        "image": "",
+        "title": "Qayta sotish"
+      }
+    ],
+    "subtitle2": "Qo'shimcha xizmatlar",
+    "navigator": "KEYINGI QADAM",
+
+    "subtitle3": "Kvartiraning umumiy maydonini tanlang",
+    "image": "",
+    "numberRooms": "Xonalar soni",
+
+    "subtitle4": "Ta'mirlash uslubi",
+    "cards3": [
+      {
+        "image": "",
+        "title": "Standart"
+      },
+      {
+        "image": "",
+        "title": "Neoklassik"
+      },
+      {
+        "image": "",
+        "title": "Klassik"
+      },
+      {
+        "image": "",
+        "title": "Dizayn ostida"
+      }
+    ],
+    "button": "KEYNGI QADAM",
+    "subtitle5": "Jami",
+    "apartmentTitle": "Kvartiraning umumiy maydonini tanlang",
+
+    "cardBig": [
+      {
+        "title": "Bronza 157$/м²",
+        "desc": "- Materiallarni sotib olish, Shiftni, devorlarni tekislash, Shiftni yopishtirish, Devor va shipni bezash, Pol qoplamasi, Santexnika o'rnatish, Rozetkalar / kalitlarni o'rnatish, Kornişlar, yubka taxtalarini o'rnatish, Chiqindilarni yig'ish, tozalash"
+      },
+
+      {
+        "title": "Kumush 217$/м²",
+        "desc": "- Standartga kiritilgan barcha ishlar, Yuqori sifatli materiallar, Mayoqlarda devorlarni tekislash, Demontaj ishlari bepul"
+      },
+      {
+        "title": "Oltin dan 257$/м²",
+        "desc": "- Premiumga kiritilgan barcha ishlar, bepul dizayn, mijozning qo'shimcha istaklari"
+      }
+    ]
+  },
+
+  "Design": {
+    "title": "DIZAYN",
+    "description": "Bizning professional dizaynerlar jamoasi sizning xohishingizga ko'ra sizning binolaringiz uchun dizayn loyihasini ishlab chiqadi. Platinum xizmatiga buyurtma berishda, dizaynni sovg'a sifatida taqdim eting",
+    "prccess": "Tugallangan loyiha",
+    "prccess2": "Ko'rib chiqilmoqda",
+
+    "card": [
+      {
+        "title": "zal"
+      },
+      {
+        "title": "hammom"
+      },
+      {
+        "title": "koridor"
+      },
+      {
+        "title": "Yotoq xonasi"
+      },
+      {
+        "title": "bolalar uchun"
+      },
+      {
+        "title": "holl"
+      },
+      {
+        "title": "kabinet"
+      },
+      {
+        "title": "oshxona"
+      }
+    ]
+  },
+
+  "Cooperate": {
+    "title": "Hamkorlarimiz"
+  },
+
+  "Faq": {
+    "title": "KO'P SO'RALADIGAN SAVOLLAR",
+
+    "cardQues": [
+      {
+        "ques": "Kalit ta'mirlash nima?",
+        "answ": "Kalit ta'mirlash - bu eski materiallarni demontaj qilishdan tortib, mebel va maishiy texnika o'rnatishgacha bo'lgan binolarni ta'mirlashning barcha bosqichlarini o'z ichiga olgan ishlarning to'liq to'plami."
+      },
+      {
+        "ques": "Qayta ta'mirlash qancha vaqtni oladi?",
+        "answ": "Ta'mirlash muddati ish hajmiga va binolarning holatiga bog'liq. Odatda, kalitlarni ta'mirlash bir necha haftadan bir necha oygacha davom etadi."
+      },
+      {
+        "ques": "Men kalit taslim ta'mirlash materiallarini o'zim sotib olishim kerakmi?",
+        "answ": "Siz materiallarni o'zingiz sotib olishingiz mumkin, ammo biz kerakli materiallarni xarid qilish xizmatini ham taqdim eta olamiz."
+      },
+      {
+        "ques": "Kalit ta'mirlashda qanday materiallar ishlatiladi?",
+        "answ": "Biz faqat talab va standartlarga javob beradigan yuqori sifatli materiallardan foydalanamiz. Biz materiallar sifatini kafolatlash uchun ishonchli etkazib beruvchilar bilan ishlaymiz."
+      },
+      {
+        "ques": "Ta'mirlash uchun kalitlarga qanday kafolatlar berasiz?",
+        "answ": "Ta'mirlash tugagandan so'ng 1-3 yil ichida bajarilgan barcha ishlar uchun kafolat beramiz. Bu muddat ish turiga qarab farq qilishi mumkin."
+      },
+      {
+        "ques": "Kalit ta'mirlash uchun to'lov shartlari qanday?",
+        "answ": "Biz har bir mijoz bilan to'lov shartlarini alohida muhokama qilamiz. Biz turli xil to'lov imkoniyatlarini, jumladan, bo'lib-bo'lib to'lashni taklif qilishimiz mumkin."
+      },
+      {
+        "ques": "Ta'mirlashdan keyin axlat olib tashlanadimi?",
+        "answ": "Ha, ish tugagandan so'ng barcha axlatlarni olib tashlaymiz."
+      }
+    ]
+  },
+
+  "Contact": {
+    "title": "SAVOLLARINGIZ BORMI?",
+    "contacts": "Kontaktlar",
+    "network": "Ijtimoiy tarmoq:",
+    "location": "Manzil",
+
+    "inputTitle": "ALOQAGA CHIQISH",
+    "inputName": "Ism",
+    "inputPhone": "Telefon raqam",
+    "inputMess": "Xabar",
+
+    "button": "YUBORISH"
+  },
+
+  "Footer": {
+    "group": "Toshkent MChJ",
+
+    "city": "Shahringizdagi barcha yangi binolar.",
+
+    "locate": "100059, Toshkent sh., Yakkasaroy tumani, ko‘ch. Shota Rustaveli, 58 uy"
+  }
+}
