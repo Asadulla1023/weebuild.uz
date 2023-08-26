@@ -590,7 +590,7 @@ const Cost = () => {
                                 if (e === "Новостройка") {
                                   setDemontajPr(0)
                                 }
-                                if (e === ads2_uz[0]) {
+                                if (e === ads_uz[0]) {
                                   setDemontajPr(0)
                                 }
                               }}
