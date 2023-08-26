@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "@/styles/contact.module.css";
 import Image from "next/image";
 import Container from "../global/Container";
@@ -6,20 +6,31 @@ import Maps from "./Map";
 import Link from "next/link";
 import axios from "axios";
 import { useTranslations } from "next-intl";
+import Thnx from "./Thnx";
 
 const Contact = () => {
-    const Post = (e: React.FormEvent<HTMLFormElement> | any): void => {
-      e.preventDefault()
-      const data = new FormData(e.target)
-      const obj = Object.fromEntries(data.entries())
-      const send = `email: ${obj.name}%0Anumber: ${obj.phoneNumber}%0Amessage: ${obj.message}`
-      axios({
-          method: "post",
-          url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-968558065&text=${send}`
-      }).then(res => console.log(res.data)).catch(err => console.log(err))
+  const [thnx, setThnx] = useState(false)
+  const [name, setName] = useState("")
+  const [phNum, setPhNum] = useState("")
+  const [message, setMessage] = useState("")
+  const Post = (e: React.FormEvent<HTMLFormElement> | any): void => {
+    e.preventDefault()
+    const data = new FormData(e.target)
+    const obj = Object.fromEntries(data.entries())
+    const send = `email: ${obj.name}%0Anumber: ${obj.phoneNumber}%0Amessage: ${obj.message}`
+    axios({
+      method: "post",
+      url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-968558065&text=${send}`
+    })
+    if (name !== "" && phNum !== "" && message !== "") {
+      setThnx(!thnx)
+      setName("")
+      setPhNum("")
+      setMessage("")
+    }
   }
   const t = useTranslations("Contact")
-  
+
   return (
     <Container id="contact">
       {
@@ -110,7 +121,7 @@ const Contact = () => {
                           alt="locate"
                         />
                       </Link>
-                      <a href="https://www.google.com/maps/place/41%C2%B016'49.6%22N+69%C2%B014'50.5%22E/@41.2804373,69.2447741,17z/data=!3m1!4b1!4m4!3m3!8m2!3d41.2804333!4d69.247349?hl=ru-RU&entry=ttu"  target="_blank">
+                      <a href="https://www.google.com/maps/place/41%C2%B016'49.6%22N+69%C2%B014'50.5%22E/@41.2804373,69.2447741,17z/data=!3m1!4b1!4m4!3m3!8m2!3d41.2804333!4d69.247349?hl=ru-RU&entry=ttu" target="_blank">
                         Шота Руставели 58
                       </a>
                     </div>
@@ -121,18 +132,25 @@ const Contact = () => {
                 <h1>{t("inputTitle")}</h1>
                 <div className={styles.inputForm}>
                   <p>{t("inputName")}</p>
-                  <input name="name" required type="text" />
+                  <input name="name" value={name} onChange={(p) => {
+                    setName(p.target.value)
+                  }} required type="text" />
                 </div>
                 <div style={{ marginTop: 10 }} className={styles.inputForm}>
                   <p>{t("inputPhone")}</p>
-                  <input name="phoneNumber" minLength={9} maxLength={13} type="text" required />
+                  <input name="phoneNumber" onChange={(p) => {
+                    setPhNum(p.target.value)
+                  }} value={phNum} minLength={9} maxLength={13} type="text" required />
                 </div>
                 <div style={{ marginTop: 10 }} className={styles.inputForm}>
                   <p>{t("inputMess")}</p>
                 </div>
-                  <textarea name="message" minLength={1} maxLength={2500} required className={styles.textarea} />
+                <textarea name="message" onChange={(p) => {
+                  setMessage(p.target.value)
+                }} value={message} minLength={1} maxLength={2500} required className={styles.textarea} />
                 <button className={styles.button}>{t("button")}</button>
               </form>
+                <Thnx setThnx={setThnx} thnx={thnx} />
             </div>
           </div>
         </>

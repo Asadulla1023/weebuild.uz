@@ -208,5 +208,10 @@
     "city": "Shahringizdagi barcha yangi binolar.",
 
     "locate": "100059, Toshkent sh., Yakkasaroy tumani, ko‘ch. Shota Rustaveli, 58 uy"
+  },
+  "Thnx": {
+    "title": "Arizangiz uchun raxmat",
+    "subtitle": "Biz siz bilan yaqin orada bog'lanamiz",
+    "button":  "Yopish"
   }
 }
