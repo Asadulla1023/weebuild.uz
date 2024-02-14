@@ -22,8 +22,8 @@ const Cost = () => {
   const [selected2, setSelected2] = useState<string>("");
   const ads: string[] = ["Новостройка", "Вторичка"];
   const ads_uz: string[] = ["Yangi bino", "Qayta sotish"];
-  const ads2: string[] = ["Межкомнатные перегородки", "Демонтаж"];
-  const ads2_uz: string[] = ["Ichki qismlar", "Demontaj"];
+  const ads2: string[] = ["Межкомнатные перегородки", "Демонтаж старого ремонта"];
+  const ads2_uz: string[] = ["Ichki qismlar", "Eski ishlarini demontaj qilish"];
   const ads3: string[] = ["Стандарт", "Неоклассика", "Классика", "Под дизайн"];
   const ads3_uz: string[] = ["Standart", "Neoklassik", "Klassik", "Dizayn bilan"];
   const [counter, setCounter] = useState<number>(1);
@@ -37,6 +37,7 @@ const Cost = () => {
   const [props, setProps] = useState<ICardPrice | undefined>();
   const [overed, setOvered] = useState<string>("");
   // const router = useRouter();
+  const [changed, setChanged] = useState(0)
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [addPrice, setAddPrice] = useState<number>(0);
   const [addPrice1, setAddPrice1] = useState<number>(0);
@@ -48,6 +49,14 @@ const Cost = () => {
       document.body.style.overflow = "auto";
     }
   }, [orderOpen]);
+  useEffect(()=> {
+    if (selectedRepair === ads3_uz[1] || selectedRepair === ads3_uz[2]) {
+      setChanged(demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice*val)
+      console.log(changed);
+      setAddPrice(13)
+    }
+    console.log(addPrice);
+  }, [selectedRepair])
   const t = useTranslations("Calculation")
   const path = usePathname()
   return (
@@ -85,9 +94,6 @@ const Cost = () => {
                               </div>
                             ) : null}
                             <div
-                              onClick={() => {
-                                setCounter(e)
-                              }}
                               className={styles.circle}
                               style={
                                 counter < e
@@ -164,7 +170,7 @@ const Cost = () => {
                               : styles.checkbox
                           }
                           onClick={() => {
-                            setPeregorkiPr(17)
+                            setPeregorkiPr(15)
                             setPeregorki(!peregorki)
                           }}
                         >
@@ -187,7 +193,7 @@ const Cost = () => {
                               }
                               onClick={() => {
                                 setPeregorki(!peregorki)
-                                setPeregorkiPr(17);
+                                setPeregorkiPr(15);
                               }}
                             >
                               <Image
@@ -217,7 +223,7 @@ const Cost = () => {
                                 width={380}
                                 height={245}
                               />
-                              <p>{path === "/" ? "Демонтаж" : ads2_uz[1]}</p>
+                              <p>{path === "/" ? "Демонтаж старого ремонта" : ads2_uz[1]}</p>
                             </div></>
                         )}
                     </div>
@@ -268,9 +274,6 @@ const Cost = () => {
                           </div>
                         ) : null}
                         <div
-                          onClick={() => {
-                            setCounter(e)
-                          }}
                           className={styles.circle}
                           style={
                             counter < e
@@ -379,9 +382,6 @@ const Cost = () => {
                           </div>
                         ) : null}
                         <div
-                          onClick={() => {
-                            setCounter(e)
-                          }}
                           className={styles.circle}
                           style={
                             counter < e
@@ -403,77 +403,76 @@ const Cost = () => {
                     <h3>{t("subtitle4")}</h3>
                     <div className={styles.checksRep}>
                       {path === "/" ? ads3.map((e: string, index: number) => {
-                        return (
-                          <div
-                            key={uuidv4()}
-                            className={
-                              e === selectedRepair
-                                ? `${styles.checkboxRep} ${styles.boxShadowRep}`
-                                : styles.checkboxRep
-                            }
-                            onClick={() => {
-                              setSelectedRepair(e);
-                              if (e === "Стандарт") {
-                                setAddPrice1(0);
+                        if (index < 3) {
+                          return (
+                            <div
+                              key={uuidv4()}
+                              className={
+                                e === selectedRepair
+                                  ? `${styles.checkboxRep} ${styles.boxShadowRep}`
+                                  : styles.checkboxRep
                               }
-                              if (e === "Неоклассика") {
-                                setAddPrice1(0);
-                              }
-                              if (e === "Классика") {
-                                setAddPrice1(0);
-                              }
-                              if (e === "Под дизайн") {
-                                setAddPrice1(0);
-                                setChecked(true);
-                                setAddPrice2(15)
-                              }
-                            }}
-                          >
-                            <Image
-                              src={`/images/repair${index + 1}.png`}
-                              alt="decorate"
-                              width={244}
-                              height={211}
-                            />
-                            <p>{e}</p>
-                          </div>
-                        );
+                              onClick={() => {
+                                setSelectedRepair(e);
+                                if (e === "Стандарт") {
+                                  setAddPrice1(0);
+                                }
+                                if (e === "Неоклассика") {
+                                  setAddPrice1(13);
+                                }
+                                if (e === "Классика") {
+                                  setAddPrice1(13);
+                                }
+                                if (e === "Под дизайн") {
+                                  setAddPrice1(0);
+                                  setChecked(true);
+                                  setAddPrice2(15)
+                                }
+                              }}
+                            >
+                              <Image
+                                src={`/images/repair${index + 1}.png`}
+                                alt="decorate"
+                                width={244}
+                                height={211}
+                              />
+                              <p>{e}</p>
+                            </div>
+                          );
+                        }
                       }) : ads3_uz.map((e: string, index: number) => {
-                        return (
-                          <div
-                            key={uuidv4()}
-                            className={
-                              e === selectedRepair
-                                ? `${styles.checkboxRep} ${styles.boxShadowRep}`
-                                : styles.checkboxRep
-                            }
-                            onClick={() => {
-                              setSelectedRepair(e);
-                              if (e === ads3_uz[0]) {
-                                setAddPrice1(0);
+                        if (index < 3) {
+                          return (
+                            <div
+                              key={uuidv4()}
+                              className={
+                                e === selectedRepair
+                                  ? `${styles.checkboxRep} ${styles.boxShadowRep}`
+                                  : styles.checkboxRep
                               }
-                              if (e === ads3_uz[1]) {
-                                setAddPrice1(0);
-                              }
-                              if (e === ads3_uz[2]) {
-                                setAddPrice1(0);
-                              }
-                              if (e === ads3_uz[3]) {
-                                setAddPrice1(0);
-                                setChecked(true);
-                                setAddPrice2(15)
-                              }
-                            }}
-                          >
-                            <Image
-                              src={`/images/repair${index + 1}.png`}
-                              alt="decorate"
-                              width={244}
-                              height={211}
-                            />
-                            <p>{e}</p>
-                          </div>
-                        );
+                              onClick={() => {
+                                setSelectedRepair(e);
+                                if (e === ads3_uz[0]) {
+                                  setAddPrice(0);
+                                }
+                                if (e === ads3_uz[1]) {
+                                  setAddPrice(13);
+                                }
+                                if (e === ads3_uz[2]) {
+                                  setAddPrice(13);
+                                }
+                              }}
+                            >
+                              <Image
+                                src={`/images/repair${index + 1}.png`}
+                                alt="decorate"
+                                width={244}
+                                height={211}
+                              />
+                              <p>{e}</p>
+                            </div>
+                          );
+                        }
                       })}
                     </div>
                     <Link href="#cost"
@@ -522,9 +521,6 @@ const Cost = () => {
                           </div>
                         ) : null}
                         <div
-                          onClick={() => {
-                            setCounter(e)
-                          }}
                           className={styles.circle}
                           style={
                             counter < e
@@ -619,18 +615,18 @@ const Cost = () => {
                                 styles.checkboxInput
                               }
                               onClick={() => {
-                                if (peregorkiPr === 17) {
+                                if (peregorkiPr === 15) {
                                   setPeregorkiPr(0)
                                 }
                                 if (peregorkiPr === 0) {
-                                  setPeregorkiPr(17)
+                                  setPeregorkiPr(15)
                                 }
                                 setPeregorki(!peregorki)
                               }}
                             >
                               <input
                                 style={
-                                  peregorkiPr === 17
+                                  peregorkiPr === 15
                                     ? {
                                       background: "#46247c",
                                     }
@@ -653,15 +649,15 @@ const Cost = () => {
                               <input
                                 onClick={() => {
                                   setPeregorki(!peregorki)
-                                  if (peregorkiPr === 17) {
+                                  if (peregorkiPr === 15) {
                                     setPeregorkiPr(0)
                                   }
                                   if (peregorkiPr === 0) {
-                                    setPeregorkiPr(17)
+                                    setPeregorkiPr(15)
                                   }
                                 }}
                                 style={
-                                  peregorkiPr === 17
+                                  peregorkiPr === 15
                                     ? {
                                       background: "#46247c",
                                     }
@@ -673,34 +669,34 @@ const Cost = () => {
                               />
                               <p>{path === "/" ? "Межкомнатные перегородки" : ads2_uz[0]}</p>
                             </div>
-                              <div
-                                className={
-                                  styles.checkboxInput
+                            <div
+                              className={
+                                styles.checkboxInput
+                              }
+                              onClick={() => {
+                                if (demontajPr === 15) {
+                                  setDemontajPr(0)
                                 }
-                                onClick={() => {
-                                  if (demontajPr === 15) {
-                                    setDemontajPr(0)
-                                  }
-                                  if (demontajPr === 0) {
-                                    setDemontajPr(15)
-                                  }
-                                  setDemontaj(!demontaj)
-                                }}
-                              >
-                                <input
-                                  style={
-                                    demontajPr === 15
-                                      ? {
-                                        background: "#46247c",
-                                      }
-                                      : {}
-                                  }
-                                  type="checkbox"
-                                />
-                                <p>{path === "/" ? "Демонтаж": "Demontaj"}</p>
-                              </div>
-                            
-                            </>
+                                if (demontajPr === 0) {
+                                  setDemontajPr(15)
+                                }
+                                setDemontaj(!demontaj)
+                              }}
+                            >
+                              <input
+                                style={
+                                  demontajPr === 15
+                                    ? {
+                                      background: "#46247c",
+                                    }
+                                    : {}
+                                }
+                                type="checkbox"
+                              />
+                              <p>{path === "/" ? "Демонтаж старого ремонта" : "Eski ishlarini demontaj qilish"}</p>
+                            </div>
+
+                          </>
                         )}
                       </div>
                     </div>
@@ -765,71 +761,75 @@ const Cost = () => {
                       <div className={styles.type}>
                         <h3>{t("subtitle4")}</h3>
                         {path === "/" ? ads3.map((e: string, index: number) => {
-                          return (
-                            <div
-                              key={uuidv4()}
-                              className={
-                                e === selectedRepair
-                                  ? styles.checkboxInput
-                                  : styles.checkboxInput
-                              }
-                              onClick={() => {
-                                setSelectedRepair(e);
-                                setAddPrice1(0);
-                                if (e === "Под дизайн") {
-                                  setChecked(true);
-                                  setAddPrice2(15)
-                                }
-                              }}
-                            >
-                              <input
-                                style={
+                          if (index < 3) {
+                            return (
+                              <div
+                                key={uuidv4()}
+                                className={
                                   e === selectedRepair
-                                    ? {
-                                      background: "#46247c",
-                                    }
-                                    : {}
+                                    ? styles.checkboxInput
+                                    : styles.checkboxInput
                                 }
-                                type="checkbox"
-                              />
-                              <p>{e}</p>
-                            </div>
-                          );
-                        }): ads3_uz.map((e: string, index: number) => {
-                          return (
-                            <div
-                              key={uuidv4()}
-                              className={
-                                e === selectedRepair
-                                  ? styles.checkboxInput
-                                  : styles.checkboxInput
-                              }
-                              onClick={() => {
-                                setSelectedRepair(e);
-                                setAddPrice1(0);
-                                if (e === ads3_uz[3]) {
-                                  setChecked(true);
-                                  setAddPrice2(15)
-                                }
-                              }}
-                            >
-                              <input
-                                style={
+                                onClick={() => {
+                                  setSelectedRepair(e);
+                                  if (e !== ads3[0]) {
+                                    setAddPrice1(13)
+                                  } else {
+                                    setAddPrice1(0)
+                                  }
+                                }}
+                              >
+                                <input
+                                  style={
+                                    e === selectedRepair
+                                      ? {
+                                        background: "#46247c",
+                                      }
+                                      : {}
+                                  }
+                                  type="checkbox"
+                                />
+                                <p>{e}</p>
+                              </div>
+                            );
+                          }
+                        }) : ads3_uz.map((e: string, index: number) => {
+                          if (index < 3) {
+                            return (
+                              <div
+                                key={uuidv4()}
+                                className={
                                   e === selectedRepair
-                                    ? {
-                                      background: "#46247c",
-                                    }
-                                    : {}
+                                    ? styles.checkboxInput
+                                    : styles.checkboxInput
                                 }
-                                type="checkbox"
-                              />
-                              <p>{e}</p>
-                            </div>
-                          );
+                                onClick={() => {
+                                  setSelectedRepair(e);
+                                  if (e !== ads3_uz[0]) {
+                                    setAddPrice(13)
+                                  } else {
+                                    setAddPrice(0)
+                                  }
+                                }}
+                              >
+                                <input
+                                  style={
+                                    e === selectedRepair
+                                      ? {
+                                        background: "#46247c",
+                                      }
+                                      : {}
+                                  }
+                                  type="checkbox"
+                                />
+                                <p>{e}</p>
+                              </div>
+                            );
+                          }
                         })}
                       </div>
                       <div className={styles.type}>
-                        <h3>{path === "/" ? "Дизайн": "Dizayn"}</h3>
+                        <h3>{path === "/" ? "Дизайн" : "Dizayn"}</h3>
                         <div
                           className={
                             checked
@@ -855,7 +855,7 @@ const Cost = () => {
                             }
                             type="checkbox"
                           />
-                          <p>{path === "/" ?"Нужен": "Kerak"}</p>
+                          <p>{path === "/" ? "Под дизайн" : "Dizayn bilan"}</p>
                         </div>
                       </div>
                     </div>
@@ -873,8 +873,6 @@ const Cost = () => {
                         />
                         <div className={styles.desc}>
                           <h3>{prop.title}</h3>
-                          <div className={styles.line} />
-                          <p>{prop.desc}</p>
                         </div>
                         <button
                           className={
@@ -891,16 +889,18 @@ const Cost = () => {
                           onClick={() => {
                             setOrderOpen(!orderOpen);
                             setProps(prop);
-                            setTotalPrice(
-                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val
+                            path === "/" ? setTotalPrice(
+                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice1*val
+                            ) : setTotalPrice(
+                              prop.price * val + changed
                             );
                           }}
                         >
-                          {prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val}$
+                          {path === "/" ? prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice1*val : prop.price * val + changed}$
                         </button>
                       </div>
                     );
-                  }): CARD_PRICE_UZ.map((prop: ICardPrice) => {
+                  }) : CARD_PRICE_UZ.map((prop: ICardPrice) => {
                     return (
                       <div key={uuidv4()} className={styles.cardPriceItem}>
                         <Image
@@ -911,8 +911,6 @@ const Cost = () => {
                         />
                         <div className={styles.desc}>
                           <h3>{prop.title}</h3>
-                          <div className={styles.line} />
-                          <p>{prop.desc}</p>
                         </div>
                         <button
                           className={
@@ -930,11 +928,11 @@ const Cost = () => {
                             setOrderOpen(!orderOpen);
                             setProps(prop);
                             setTotalPrice(
-                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val
+                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice*val
                             );
                           }}
                         >
-                          {prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val}$
+                          {prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice*val}$
                         </button>
                       </div>
                     );

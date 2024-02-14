@@ -21,7 +21,6 @@ export const STYLE_OBJ = [
   },
 ];
 
-
 export const CARD_OBJECT_DESIGN: ICard[] = [
   {
     images: [
@@ -152,7 +151,7 @@ export const CARD_OBJECT_DESIGN: ICard[] = [
       },
     ],
     title: "Спальня",
-  }
+  },
 ];
 
 export const ADVANTAGES: IAdvantages[] = [
@@ -296,23 +295,23 @@ export const NAV_UZ = [
 export const CARD_PRICE = [
   {
     image: "/images/cardprice0.png",
-    title: "Бронза 157$/м²",
+    title: "Бронза от 189$/м²",
     desc: "- Покупка материалов, Выравнивание потолка, стен, Шпаклевание, Отделка стен, потолка, Напольное покрытие, Установка сантехники, Установка розеток/выключателей, Установка карнизов, плинтусов, Уборка мусора, клининг",
-    price: 157
+    price: 189,
   },
   {
     image: "/images/cardprice1.png",
-    title: "Серебро 217$/м²",
+    title: "Серебро от 219$/м²",
     desc: "- Все работы включенные в стандарт, Материалы более высокого качества, Выравнивание стен по маякам, Демонтажные работы бесплатно",
-    price: 217
+    price: 219,
   },
   {
     image: "/images/cardprice2.png",
-    title: "Золото от 257$/м²",
+    title: "Золото от 249$/м²",
     desc: "- Все работы включенные в премиум, Дизайн бесплатно, Дополнительные пожелания заказчика",
-    price: 257
-  }
-]
+    price: 249,
+  },
+];
 
 export const LOGO = [
   {
@@ -515,27 +514,27 @@ export const CARD_OBJECT_DESIGN_UZ: ICard[] = [
       },
     ],
     title: "Yotoq xonasi",
-  }
+  },
 ];
 
 export const CARD_PRICE_UZ = [
   {
     image: "/images/cardprice0.png",
-    title: "Bronza 157$/м²",
+    title: "Bronza 189$/м² dan",
     desc: "- Materiallarni sotib olish, Shiftni, devorlarni tekislash, Shiftni yopishtirish, Devor va shipni bezash, Pol qoplamasi, Santexnika o'rnatish, Rozetkalar / kalitlarni o'rnatish, Kornişlar, yubka taxtalarini o'rnatish, Chiqindilarni yig'ish, tozalash",
-    price: 157,
+    price: 189,
   },
   {
     image: "/images/cardprice1.png",
-    title: "Kumush 217$/м²",
+    title: "Kumush 219$/м² dan",
     desc: "- Standartga kiritilgan barcha ishlar, Yuqori sifatli materiallar, Mayoqlarda devorlarni tekislash, Demontaj ishlari bepul",
-    price: 217,
+    price: 219,
   },
   {
     image: "/images/cardprice2.png",
-    title: "Oltin dan 257$/м²",
+    title: "Oltin 249$/м² dan",
     desc: "- Premiumga kiritilgan barcha ishlar, bepul dizayn, mijozning qo'shimcha istaklari",
-    price: 257,
+    price: 249,
   },
 ];
 
@@ -567,5 +566,167 @@ export const MODAL_UZ = [
   {
     ques: "Ta'mirlashdan keyin axlat olib tashlanadimi?",
     answ: "Ha, ish tugagandan so'ng barcha axlatlarni olib tashlaymiz.",
+  },
+];
+
+export const props_uz = [
+  {
+    title: "Bronza",
+    properties: {
+      putty: "Buchen",
+      rodbend: "Buchen",
+      tileGlue: "Eleron",
+      dryWall: "Gyproc",
+      cement: "Turon 450",
+      waterproofing: "Ventum",
+      thickness: "0,4 mm",
+      wood: "Rossiya",
+      cafel: "O'zbekiston, 60x60, 120x60",
+      pol: "Laminat Rossiya 8 mm",
+      traction: "Penoplast",
+      color: "Dyo",
+      plint: "Plastik O'zbekiston",
+      wallpaper: "Past narx kategoriyasi",
+      santex: "Vero",
+      unitaz: "Eco ceramica",
+      smesit: "Bau",
+      registr: "Akfa",
+      teplyPol: "Ideal plast",
+      eInstallation: "Viko",
+      wiring: "Uzcabel",
+    },
+  },
+  {
+    title: "Kumush",
+    properties: {
+      putty: "Eleron",
+      rodbend: "Eleron",
+      tileGlue: "Knauf",
+      dryWall: "Volma",
+      cement: "Turon 500",
+      waterproofing: "Ventum",
+      thickness: "0,4 mm",
+      wood: "Rossiya",
+      cafel: "Hindiston, 60x60, 120x60",
+      pol: "Laminat Italiya 8-10 mm",
+      traction: "Gips",
+      color: "Dyo",
+      plint: "Plastik Rossiya",
+      wallpaper: "O'rtacha narx toifasi",
+      santex: "Vero",
+      unitaz: "Coco",
+      smesit: "Bau",
+      registr: "Akfa",
+      teplyPol: "Herz",
+      eInstallation: "Panasonic",
+      wiring: "Uzcabel",
+    },
+  },
+  {
+    title: "Oltin",
+    properties: {
+      putty: "Knauf",
+      rodbend: "Knauf",
+      tileGlue: "Ventum",
+      dryWall: "Knauf",
+      cement: "Evro cement 550",
+      waterproofing: "Ventum",
+      thickness: "0,4 mm",
+      wood: "Rossiya",
+      cafel: "Hitoy, 60x60, 120x60",
+      pol: "Tarket Rossiya 10 mm",
+      traction: "Gips, poliuretan",
+      color: "Flugger",
+      plint: "Rossiya Mdf",
+      wallpaper: "Yuqori narx toifasi",
+      santex: "Kas, Waterpros",
+      unitaz: "Grohe",
+      smesit: "Grohe",
+      registr: "Akfa",
+      teplyPol: "Herz",
+      eInstallation: "Schneider elektric",
+      wiring: "Uzcabel",
+    },
+  },
+];
+
+export const props_ru = [
+  {
+    title: "Бронза",
+    properties: {
+      putty: "Buchen",
+      rodbend: "Buchen",
+      tileGlue: "Eleron",
+      dryWall: "Gyproc",
+      cement: "Турон 450",
+      waterproofing: "Ventum",
+      thickness: "0,4 мм",
+      wood: "Россия",
+      cafel: "Узбекистан, 60x60, 120x60",
+      pol: "Ламинат Россия 8мм",
+      traction: "Пенопласт",
+      color: "Dyo",
+      plint: "Пластик Узбекистан",
+      wallpaper: "Низкой ценовой категории",
+      santex: "Vero",
+      unitaz: "Eco ceramica",
+      smesit: "Bau",
+      registr: "Akfa",
+      teplyPol: "Ideal plast",
+      eInstallation: "Viko",
+      wiring: "Uzcabel",
+    },
+  },
+  {
+    title: "Серебро",
+    properties: {
+      putty: "Eleron",
+      rodbend: "Eleron",
+      tileGlue: "Knauf",
+      dryWall: "Volma",
+      cement: "Турон 500",
+      waterproofing: "Ventum",
+      thickness: "0,4 мм",
+      wood: "Россия",
+      cafel: "Индия, 60x60, 120x60",
+      pol: "Ламинат Италия 8-10 мм",
+      traction: "Гипс",
+      color: "Dyo",
+      plint: "Пластик Россия",
+      wallpaper: "Средней ценовой категории",
+      santex: "Vero",
+      unitaz: "Coco",
+      smesit: "Bau",
+      registr: "Akfa",
+      teplyPol: "Herz",
+      eInstallation: "Panasonic",
+      wiring: "Uzcabel",
+    },
+  },
+  {
+    title: "Золото",
+    properties: {
+      putty: "Knauf",
+      rodbend: "Knauf",
+      tileGlue: "Ventum",
+      dryWall: "Knauf",
+      cement: "Evro cement 550",
+      waterproofing: "Ventum",
+      thickness: "0,4 мм",
+      wood: "Россия",
+      cafel: "Китай, 60x60, 120x60",
+      pol: "Таркет Россия 10мм",
+      traction: "Гипс, полиуретан",
+      color: "Flugger",
+      plint: "Мдф Россия",
+      wallpaper: "Высокой ценовой категории",
+      santex: "Kas, Waterpros",
+      unitaz: "Grohe",
+      smesit: "Grohe",
+      registr: "Akfa",
+      teplyPol: "Herz",
+      eInstallation: "Schneider elektric",
+      wiring: "Uzcabel",
+    },
   },
 ];

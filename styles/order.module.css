@@ -11,6 +11,17 @@
   align-items: center;
 }
 
+.orderModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+}
+
 .container {
   background: #fff;
   border-radius: 20px;
@@ -22,10 +33,11 @@
   justify-content: center;
   gap: 1rem;
   position: fixed;
-  left: 50%;
-  margin-left: -200px;
-  top: 50%;
-  margin-top: -180px;
+  /* left: 0; */
+  /* margin-left: -200px; */
+  /* top: 0%; */
+  width: 90%;
+  height: 90%;
 }
 
 .container > h3 {
@@ -37,14 +49,14 @@
     font-size: 18px;
 }
 
-.container > form {
+.container form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 300px;
 }
 
-.container > form > input {
+.container form > input {
   width: 100%;
   height: 70px;
   border-radius: 20px;
@@ -56,7 +68,7 @@
   font-size: 18px;
 }
 
-.container > form > button {
+.container form > button {
   background-image: linear-gradient(-90deg, #44217b, #500bc0);
   background-size: 0 100%;
   background-repeat: no-repeat;
@@ -67,13 +79,52 @@
   cursor: pointer;
   color: #44217b;
   width: 100%;
-  height: 60px;
+  height: 55px;
   font-size: 20px;
   margin-top: 1rem;
 }
 
-.container > form > button:hover {
+.container form > button:hover {
     color: #fff;
     background: #44217b;
   background-size: 100% 100%;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+}
+
+.properties > h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.properties {
+ width: 320px;
+ border-bottom: 1px solid #000;
+}
+
+.value {
+  display: flex;
+  border: 1px solid #000;
+  border-bottom: 0 solid #000;
+}
+
+.value > h3 {
+  text-align: center;
+  font-size: 0.8rem;
+  width: 50%;
+  border-right: 1px solid #000;
+}
+
+.value > p {
+  text-align: center;
+  width: 50%;
+  font-weight: 450;
+  margin: auto;
+  font-size: 0.8rem
 }

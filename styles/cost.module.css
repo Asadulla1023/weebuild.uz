@@ -374,7 +374,7 @@
 .cardPriceList {
   display: flex;
   justify-content: space-between;
-  height: 620px;
+  height: fit-content !important;
   gap: 1rem;
 }
 
