@@ -568,6 +568,10 @@
   }
 }
 
+.checkbox > img  {
+  border-radius: 20px;
+}
+
 @media screen and (max-width: 930px) {
   .content h1 {
     font-size: 30px !important;
