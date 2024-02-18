@@ -38,7 +38,7 @@ export default function Home() {
   useEffect(()=> {
     setTimeout(()=> {
       setIsOpen(true)
-    }, 50000)
+    }, 25000)
   }, [])
   return (
     <>
