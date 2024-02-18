@@ -143,7 +143,7 @@ const Cost = () => {
                               alt="decorate"
                               width={380}
                               style={{
-                                borderRadius: "20px"
+                                borderRadius: 20
                               }}
                               height={245}
                             />
