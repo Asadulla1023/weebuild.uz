@@ -5,6 +5,7 @@ import Image from "next/image";
 import { LOGO } from "@/constant";
 import ILogo from "@/interfaces/ILogo";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 const Cooperation = () => {
   const t = useTranslations("")
   return (
@@ -15,11 +16,11 @@ const Cooperation = () => {
             <h1>{t("Cooperate.title")}</h1>
           </div>
           <div className={styles.cooperationCard}>
-            {LOGO.map((e: ILogo) => {
+            {LOGO.map((e) => {
               return (
-                <div key={uuidv4()} className={styles.card}>
+                <Link href={`${e.url}`} key={uuidv4()} className={styles.card}>
                   <Image src={e.image} width={330} height={200} alt="logo"/>
-                </div>
+                </Link>
               );
             })}
           </div>

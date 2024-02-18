@@ -157,37 +157,37 @@ export const CARD_OBJECT_DESIGN: ICard[] = [
 export const ADVANTAGES: IAdvantages[] = [
   {
     title: "Более 20 специалистов в команде.",
-    desc: "Замер помещения, разработка дизайн проекта, выполнение всех этапов ремонтно-отделочных работ до сдачи объекта заказчику в готовом виде. ",
+    desc: "Наши специалисты имеют многолетний опыт в сфере строительства",
     image: "/images/workers.png",
   },
   {
     title: "Работаем строго по договору.",
-    desc: "Замер помещения, разработка дизайн проекта, выполнение всех этапов ремонтно-отделочных работ до сдачи объекта заказчику в готовом виде. ",
+    desc: "Работаем только в чистую Все сроки и сумму прописываем в договоре",
     image: "/images/sign.png",
   },
   {
     title: "Гарантия на проделанные работы от 1-3 лет.",
-    desc: "Замер помещения, разработка дизайн проекта, выполнение всех этапов ремонтно-отделочных работ до сдачи объекта",
+    desc: "В договоре указываем гарантийный срок на проделанные работы. В следствии чего мы несем ответственность за проделанные работы в течении гарантийного срока",
     image: "",
   },
   {
     title: "Выполнение в срок.",
-    desc: "Замер помещения, разработка дизайн проекта, выполнение всех этапов ремонтно-отделочных работ до сдачи объекта",
+    desc: "За каждый просроченный день мы выплачиваем штраф.",
     image: "",
   },
   {
     title: "Бригада профессиональных мастеров.",
-    desc: "Замер помещения, разработка дизайн проекта, выполнение всех этапов ремонтно-отделочных работ до сдачи объекта",
+    desc: "На каждый этап работ у нас отдельная бригада мастеров узкой специализации",
     image: "",
   },
   {
     title: "Прозрачность.",
-    desc: "Замер помещения, разработка дизайн проекта, выполнение всех этапов ремонтно-отделочных работ до сдачи объекта",
+    desc: "Все закупки заранее согласовываются с заказчиком. Мы ведем отчет о всех затратах и предоставляем заказчику в виде таблицы с ценами и количеством",
     image: "",
   },
   {
     title: "Предварительный расчет стоимости.",
-    desc: "Замер помещения, разработка дизайн проекта, выполнение всех этапов ремонтно-отделочных работ до сдачи объекта",
+    desc: "Мы даем предварительный расчет на весь ремонт Вашего дизайн-проекта и состояния объекта В расчет берем среднюю статистику по городу за квадратный метр по полу.",
     image: "",
   },
 ];
@@ -195,37 +195,37 @@ export const ADVANTAGES: IAdvantages[] = [
 export const ADVANTAGES_UZ: IAdvantages[] = [
   {
     title: "Jamoada 20 dan ortiq mutaxassislar ishlaydi.",
-    desc: "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, ob'ektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish.",
+    desc: "Mutaxassislarimiz qurilish sohasida ko'p yillik tajribaga ega",
     image: "/images/workers.png",
   },
   {
     title: "Biz shartnoma asosida qat'iy ishlaymiz.",
-    desc: "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, ob'ektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish.",
+    desc: "Biz faqat toza soatlarda ishlaymiz.Barcha shartlar va miqdorlar shartnomada ko'rsatilgan.",
     image: "/images/sign.png",
   },
   {
     title: "1-3 yildan boshlab bajarilgan ishlar uchun kafolat.",
-    desc: "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, ob'ektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish.",
+    desc: "Shartnomada bajarilgan ish uchun kafolat muddati ko'rsatilgan. Natijada, biz kafolat muddati davomida bajarilgan ishlar uchun javobgarmiz.",
     image: "",
   },
   {
     title: "O'z vaqtida tugatish.",
-    desc: "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, ob'ektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish.",
+    desc: "Har bir kechiktirilgan kun uchun jarima to'laymiz.",
     image: "",
   },
   {
     title: "Professional hunarmandlar jamoasi.",
-    desc: "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, ob'ektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish.",
+    desc: "Bizda ishning har bir bosqichi uchun alohida yuqori ixtisoslashgan hunarmandlar jamoasi mavjud.",
     image: "",
   },
   {
     title: "Shaffoflik.",
-    desc: "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, ob'ektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish.",
+    desc: "Barcha xaridlar mijoz bilan oldindan kelishilgan holda amalga oshiriladi. Biz barcha xarajatlar bo'yicha hisobotni yuritamiz va uni mijozlarga narxlar va miqdorlar bilan jadval shaklida taqdim etamiz",
     image: "",
   },
   {
     title: "Dastlabki xarajatlarni hisoblash.",
-    desc: "Binolarni o'lchash, dizayn loyihasini ishlab chiqish, ob'ektni tayyor shaklda buyurtmachiga topshirgunga qadar ta'mirlash va pardozlash ishlarining barcha bosqichlarini amalga oshirish.",
+    desc: "Biz sizning dizayn loyihangizni to'liq ta'mirlash uchun dastlabki smeta va ob'ektning holatini beramiz.Biz har bir kvadrat metr uchun shahar bo'yicha o'rtacha statistik ma'lumotlarni hisobga olamiz.",
     image: "",
   },
 ];
@@ -316,21 +316,28 @@ export const CARD_PRICE = [
 export const LOGO = [
   {
     image: "/images/flugger.png",
+    url: "https://flugger.uz/ru"
   },
   {
     image: "/images/namunaLogo.png",
+    url: "https://nur.namunadevelopment.uz/"
   },
   {
     image: "/images/boschLogo.png",
+    url: "https://bosch-uzbekistan.uz/"
+
   },
   {
     image: "/images/knaufLogo.png",
+    url: "https://www.knauf.uz/"
   },
   {
     image: "/images/dmLogo.webp",
+    url: "https://doorandmore.uz/"
   },
   {
     image: "/images/vLogo.png",
+    url: "https://vitra.uz/"
   },
 ];
 

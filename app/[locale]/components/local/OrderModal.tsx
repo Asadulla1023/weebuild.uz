@@ -25,7 +25,7 @@ const OrderModal = ({ title, price, orderOpen, setOrderOpen, roomType, addServic
         e.preventDefault()
         const data = new FormData(e.target)
         const obj = Object.fromEntries(data.entries())
-        const send = `name: ${obj.name}%0Aemail: ${obj.email}%0Aphone-number: ${obj.phoneNumber}%0Aselected-title: ${title}%0Aprice: ${totalPrice}$%0Arooms: ${roomType}%0Aadditional-service: ${addService}%0Adesign: ${design === true ? "necessary" : "unnecessary"}%0Arepair-style: ${repStyle}%0Atotal-area: ${totalArea}`
+        const send = `name: ${obj.name}%0Aphone-number: ${obj.phoneNumber}%0Aselected-title: ${title}%0Aprice: ${totalPrice}$%0Arooms: ${roomType}%0Aadditional-service: ${addService}%0Adesign: ${design === true ? "necessary" : "unnecessary"}%0Arepair-style: ${repStyle}%0Atotal-area: ${totalArea}`
         axios({
             method: "post",
             url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-968558065&text=${send}`
@@ -83,98 +83,9 @@ const OrderModal = ({ title, price, orderOpen, setOrderOpen, roomType, addServic
             }}>
                 <h3>{title}</h3>
                 <div className={styles.info}>
-                    {props && <div className={styles.properties}>
-                        <h2>{path === "/uz" ? "Xususiyatlari" : "Характеристики"}</h2>
-                        <div className={styles.value}>
-                            <h3>Шпаклевка</h3>
-                            <p>{props.putty}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Родбэнд</h3>
-                            <p>{props.rodbend}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Кафельный клей</h3>
-                            <p>{props.tileGlue}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Гипсокартон</h3>
-                            <p>{props.dryWall}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Цемент</h3>
-                            <p>{props.cement}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Гидроизаляция</h3>
-                            <p>{props.waterproofing}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Профиль толщина</h3>
-                            <p>{props.thickness}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Рейки</h3>
-                            <p>{props.wood}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Кафель</h3>
-                            <p>{props.cafel}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Пол</h3>
-                            <p>{props.pol}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Тяги</h3>
-                            <p>{props.traction}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Краска</h3>
-                            <p>{props.color}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Плинтус</h3>
-                            <p>{props.plint}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Обои</h3>
-                            <p>{props.wallpaper}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Сантехника</h3>
-                            <p>{props.santex}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Унитаз</h3>
-                            <p>{props.unitaz}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Смеситель</h3>
-                            <p>{props.smesit}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Регистр</h3>
-                            <p>{props.registr}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Теплый пол</h3>
-                            <p>{props.teplyPol}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Электроустановочные изделия</h3>
-                            <p>{props.eInstallation}</p>
-                        </div>
-                        <div className={styles.value}>
-                            <h3>Электропроводка</h3>
-                            <p>{props.wiring}</p>
-                        </div>
-                    </div>
-                    }
                     <form action="#" onSubmit={handleSubmit}>
                         <input type="text" name='name' placeholder={path === "/" ? 'Имя' : "Ism"} required />
                         <input maxLength={13} minLength={9} type="text" name='phoneNumber' placeholder={path === "/" ? 'Номер телефона' : "Telefon raqamingiz"} required />
-                        <input type="email" name='email' placeholder={path === "/" ? 'Электрон почта' : "Email"} required />
                         <button>{path === "/" ? "ОТПРАВИТЬ" : "JO'NATISH"}</button>
                     </form>
                 </div>

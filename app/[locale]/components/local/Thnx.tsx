@@ -21,7 +21,8 @@ const Thnx = ({ setThnx, thnx }: IThnx) => {
         <div style={thnx === false ? {
             opacity : 0,
             zIndex: -100,
-            transition: "0.4s"
+            transition: "0.4s",
+            position: "relative",
         } : {
             opacity: 1,
             zIndex: 10000,

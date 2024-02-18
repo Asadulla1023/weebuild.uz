@@ -13,7 +13,7 @@ const Company: React.FC = () => {
             <Image src="/images/company.png" alt='company' width={1180} height={575} />
         </div></>
     return (
-        <Container id='company' >{children}</Container>
+        <Container id='company'>{children}</Container>
     )
 }
 

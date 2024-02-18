@@ -6,26 +6,30 @@ import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import MultiRangeSlider from "./MultiRangeSlider";
 import RoundSlider from "./RoundSlider";
-import { CARD_PRICE, CARD_PRICE_UZ } from "@/constant";
+import { CARD_PRICE, CARD_PRICE_UZ, props_ru, props_uz } from "@/constant";
 import ICardPrice from "@/interfaces/ICardPrice";
 import OrderModal from "./OrderModal";
 import { useTranslations } from 'next-intl'
 import Link from "next/link"
 import { usePathname } from "next/navigation";
+import Characteriscs from "./Characteriscs";
 const Cost = () => {
   const [checked, setChecked] = useState<boolean>(false);
   const [hovered, setHovered] = useState<boolean>(false);
+  const [characts, setCharacts] = useState(false)
   const [peregorki, setPeregorki] = useState<boolean>(false);
   const [demontaj, setDemontaj] = useState<boolean>(false);
   const contoller: number[] = [1, 2, 3, 4];
   const [selected, setSelected] = useState<string>("");
   const [selected2, setSelected2] = useState<string>("");
+  const [properties, setProperties] = useState()
+  const [prop, setProp] = useState("")
   const ads: string[] = ["Новостройка", "Вторичка"];
   const ads_uz: string[] = ["Yangi bino", "Qayta sotish"];
   const ads2: string[] = ["Межкомнатные перегородки", "Демонтаж старого ремонта"];
   const ads2_uz: string[] = ["Ichki qismlar", "Eski ishlarini demontaj qilish"];
-  const ads3: string[] = ["Стандарт", "Неоклассика", "Классика", "Под дизайн"];
-  const ads3_uz: string[] = ["Standart", "Neoklassik", "Klassik", "Dizayn bilan"];
+  const ads3: string[] = ["Стандарт", "Неоклассика", "Классика", "Хайтек", "Минимализм"];
+  const ads3_uz: string[] = ["Standart", "Neoklassik", "Klassik", "Hitech", "Minimalizm"];
   const [counter, setCounter] = useState<number>(1);
   const [val, setVal] = useState<number>(1);
   const [selectedRoom, setSelectedRoom] = useState<number>(1);
@@ -36,26 +40,34 @@ const Cost = () => {
   const [peregorkiPr, setPeregorkiPr] = useState<number>(0)
   const [props, setProps] = useState<ICardPrice | undefined>();
   const [overed, setOvered] = useState<string>("");
-  // const router = useRouter();
   const [changed, setChanged] = useState(0)
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [addPrice, setAddPrice] = useState<number>(0);
   const [addPrice1, setAddPrice1] = useState<number>(0);
   const [addPrice2, setAddPrice2] = useState<number>(0);
   useEffect(() => {
-    if (orderOpen === true) {
+    if (orderOpen === true || characts === true) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [orderOpen]);
-  useEffect(()=> {
+  }, [orderOpen, characts]);
+  useEffect(() => {
+    if (prop) {
+      if (path === "/uz") {
+        props_uz.find((i: any) => i.title === prop.split(" ")[0] && setProperties(i.properties))
+      } else {
+        props_ru.find((i: any) => i.title === prop.split(" ")[0] && setProperties(i.properties))
+      }
+      setCharacts(true)
+      return setProp("")
+    }
+  }, [prop])
+  useEffect(() => {
     if (selectedRepair === ads3_uz[1] || selectedRepair === ads3_uz[2]) {
-      setChanged(demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice*val)
-      console.log(changed);
+      setChanged(demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice * val)
       setAddPrice(13)
     }
-    console.log(addPrice);
   }, [selectedRepair])
   const t = useTranslations("Calculation")
   const path = usePathname()
@@ -130,6 +142,9 @@ const Cost = () => {
                               src={`/images/select${index + 1}.png`}
                               alt="decorate"
                               width={380}
+                              style={{
+                                borderRadius: "20px"
+                              }}
                               height={245}
                             />
                             <p>{e}</p>
@@ -403,76 +418,78 @@ const Cost = () => {
                     <h3>{t("subtitle4")}</h3>
                     <div className={styles.checksRep}>
                       {path === "/" ? ads3.map((e: string, index: number) => {
-                        if (index < 3) {
-                          return (
-                            <div
-                              key={uuidv4()}
-                              className={
-                                e === selectedRepair
-                                  ? `${styles.checkboxRep} ${styles.boxShadowRep}`
-                                  : styles.checkboxRep
+                        return (
+                          <div
+                            key={uuidv4()}
+                            className={
+                              e === selectedRepair
+                                ? `${styles.checkboxRep} ${styles.boxShadowRep}`
+                                : styles.checkboxRep
+                            }
+                            onClick={() => {
+                              setSelectedRepair(e);
+                              if (e === "Стандарт") {
+                                setAddPrice1(0);
                               }
-                              onClick={() => {
-                                setSelectedRepair(e);
-                                if (e === "Стандарт") {
-                                  setAddPrice1(0);
-                                }
-                                if (e === "Неоклассика") {
-                                  setAddPrice1(13);
-                                }
-                                if (e === "Классика") {
-                                  setAddPrice1(13);
-                                }
-                                if (e === "Под дизайн") {
-                                  setAddPrice1(0);
-                                  setChecked(true);
-                                  setAddPrice2(15)
-                                }
-                              }}
-                            >
-                              <Image
-                                src={`/images/repair${index + 1}.png`}
-                                alt="decorate"
-                                width={244}
-                                height={211}
-                              />
-                              <p>{e}</p>
-                            </div>
-                          );
-                        }
+                              if (e === "Неоклассика") {
+                                setAddPrice1(13);
+                              }
+                              if (e === "Классика") {
+                                setAddPrice1(13);
+                              }
+                              if (e === "Минимализм") {
+                                setAddPrice1(7)
+                              }
+                              if (e === "Под дизайн") {
+                                setAddPrice1(0);
+                                setChecked(true);
+                                setAddPrice2(15)
+                              }
+                            }}
+                          >
+                            <Image
+                              src={`/images/repair${index + 1}.png`}
+                              alt="decorate"
+                              width={244}
+                              height={211}
+                            />
+                            <p>{e}</p>
+                          </div>
+                        );
                       }) : ads3_uz.map((e: string, index: number) => {
-                        if (index < 3) {
-                          return (
-                            <div
-                              key={uuidv4()}
-                              className={
-                                e === selectedRepair
-                                  ? `${styles.checkboxRep} ${styles.boxShadowRep}`
-                                  : styles.checkboxRep
+                        return (
+                          <div
+                            key={uuidv4()}
+                            className={
+                              e === selectedRepair
+                                ? `${styles.checkboxRep} ${styles.boxShadowRep}`
+                                : styles.checkboxRep
+                            }
+                            onClick={() => {
+                              setSelectedRepair(e);
+                              if (e === ads3_uz[0]) {
+                                setAddPrice(0);
                               }
-                              onClick={() => {
-                                setSelectedRepair(e);
-                                if (e === ads3_uz[0]) {
-                                  setAddPrice(0);
-                                }
-                                if (e === ads3_uz[1]) {
-                                  setAddPrice(13);
-                                }
-                                if (e === ads3_uz[2]) {
-                                  setAddPrice(13);
-                                }
-                              }}
-                            >
-                              <Image
-                                src={`/images/repair${index + 1}.png`}
-                                alt="decorate"
-                                width={244}
-                                height={211}
-                              />
-                              <p>{e}</p>
-                            </div>
-                          );
-                        }
+                              if (e === ads3_uz[1]) {
+                                setAddPrice(13);
+                              }
+                              if (e === ads3_uz[4]) {
+                                setAddPrice1(7)
+                              }
+                              if (e === ads3_uz[2]) {
+                                setAddPrice(13);
+                              }
+                            }}
+                          >
+                            <Image
+                              src={`/images/repair${index + 1}.png`}
+                              alt="decorate"
+                              width={244}
+                              height={211}
+                            />
+                            <p>{e}</p>
+                          </div>
+                        );
                       })}
                     </div>
                     <Link href="#cost"
@@ -761,71 +778,73 @@ const Cost = () => {
                       <div className={styles.type}>
                         <h3>{t("subtitle4")}</h3>
                         {path === "/" ? ads3.map((e: string, index: number) => {
-                          if (index < 3) {
-                            return (
-                              <div
-                                key={uuidv4()}
-                                className={
-                                  e === selectedRepair
-                                    ? styles.checkboxInput
-                                    : styles.checkboxInput
+                          return (
+                            <div
+                              key={uuidv4()}
+                              className={
+                                e === selectedRepair
+                                  ? styles.checkboxInput
+                                  : styles.checkboxInput
+                              }
+                              onClick={() => {
+                                setSelectedRepair(e);
+                                if (e === ads3[4]) {
+                                  setAddPrice1(7)
                                 }
-                                onClick={() => {
-                                  setSelectedRepair(e);
-                                  if (e !== ads3[0]) {
-                                    setAddPrice1(13)
-                                  } else {
-                                    setAddPrice1(0)
-                                  }
-                                }}
-                              >
-                                <input
-                                  style={
-                                    e === selectedRepair
-                                      ? {
-                                        background: "#46247c",
-                                      }
-                                      : {}
-                                  }
-                                  type="checkbox"
-                                />
-                                <p>{e}</p>
-                              </div>
-                            );
-                          }
+                                if (e !== ads3[0] && e !== ads3[4]) {
+                                  setAddPrice1(13)
+                                } else {
+                                  setAddPrice1(0)
+                                }
+                              }}
+                            >
+                              <input
+                                style={
+                                  e === selectedRepair
+                                    ? {
+                                      background: "#46247c",
+                                    }
+                                    : {}
+                                }
+                                type="checkbox"
+                              />
+                              <p>{e}</p>
+                            </div>
+                          );
                         }) : ads3_uz.map((e: string, index: number) => {
-                          if (index < 3) {
-                            return (
-                              <div
-                                key={uuidv4()}
-                                className={
-                                  e === selectedRepair
-                                    ? styles.checkboxInput
-                                    : styles.checkboxInput
+                          return (
+                            <div
+                              key={uuidv4()}
+                              className={
+                                e === selectedRepair
+                                  ? styles.checkboxInput
+                                  : styles.checkboxInput
+                              }
+                              onClick={() => {
+                                setSelectedRepair(e);
+                                if (e !== ads3_uz[0] && e !==ads3_uz[4]) {
+                                  setAddPrice(13)
+                                } else {
+                                  setAddPrice(0)
                                 }
-                                onClick={() => {
-                                  setSelectedRepair(e);
-                                  if (e !== ads3_uz[0]) {
-                                    setAddPrice(13)
-                                  } else {
-                                    setAddPrice(0)
-                                  }
-                                }}
-                              >
-                                <input
-                                  style={
-                                    e === selectedRepair
-                                      ? {
-                                        background: "#46247c",
-                                      }
-                                      : {}
-                                  }
-                                  type="checkbox"
-                                />
-                                <p>{e}</p>
-                              </div>
-                            );
-                          }
+                                if (e === ads3[4]) {
+                                  setAddPrice1(7)
+                                }
+                              }}
+                            >
+                              <input
+                                style={
+                                  e === selectedRepair
+                                    ? {
+                                      background: "#46247c",
+                                    }
+                                    : {}
+                                }
+                                type="checkbox"
+                              />
+                              <p>{e}</p>
+                            </div>
+                          );
                         })}
                       </div>
                       <div className={styles.type}>
@@ -874,6 +893,9 @@ const Cost = () => {
                         <div className={styles.desc}>
                           <h3>{prop.title}</h3>
                         </div>
+                        <button onClick={() => {
+                          setProp(prop.title)
+                        }} className={styles.materials}>Посмотреть список работ и материалов</button>
                         <button
                           className={
                             overed === prop.title
@@ -890,13 +912,13 @@ const Cost = () => {
                             setOrderOpen(!orderOpen);
                             setProps(prop);
                             path === "/" ? setTotalPrice(
-                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice1*val
+                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice1 * val
                             ) : setTotalPrice(
                               prop.price * val + changed
                             );
                           }}
                         >
-                          {path === "/" ? prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice1*val : prop.price * val + changed}$
+                          {path === "/" ? prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice1 * val : prop.price * val + changed}$
                         </button>
                       </div>
                     );
@@ -912,6 +934,9 @@ const Cost = () => {
                         <div className={styles.desc}>
                           <h3>{prop.title}</h3>
                         </div>
+                        <button onClick={() => {
+                          setProp(prop.title)
+                        }} className={styles.materials}>Materiallar ro{"'"}yxati</button>
                         <button
                           className={
                             overed === prop.title
@@ -928,11 +953,11 @@ const Cost = () => {
                             setOrderOpen(!orderOpen);
                             setProps(prop);
                             setTotalPrice(
-                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice*val
+                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice * val
                             );
                           }}
                         >
-                          {prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice*val}$
+                          {prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice * val}$
                         </button>
                       </div>
                     );
@@ -949,6 +974,20 @@ const Cost = () => {
                   price={props?.price}
                   title={props?.title}
                   orderOpen={orderOpen}
+                />
+                <Characteriscs
+                  roomType={selectedRoom}
+                  totalPrice={totalPrice}
+                  addService={selected2}
+                  repStyle={selectedRepair}
+                  design={checked}
+                  props={properties!}
+                  totalArea={`${val}м²`}
+                  setOrderOpen={setCharacts}
+                  setProp={setProp}
+                  price={props?.price}
+                  title={props?.title}
+                  orderOpen={characts}
                 />
               </>
             ) : null}

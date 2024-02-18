@@ -17,8 +17,10 @@ import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation"
+import PopUp from './components/local/PopUp';
 export default function Home() {
   const t = useTranslations("Header");
+  const [isOpen, setIsOpen] = useState(false)
   const [modal, setModal] = useState<boolean>(false)
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -26,6 +28,18 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001
   });
+  useEffect(()=> {
+    if (isOpen === true) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen])
+  useEffect(()=> {
+    setTimeout(()=> {
+      setIsOpen(true)
+    }, 50000)
+  }, [])
   return (
     <>
       <motion.div className={styles.progressBar} style={{ scaleX }} />
@@ -120,6 +134,7 @@ export default function Home() {
             }
           </button>
         </div>
+        {isOpen === true && <PopUp isOpen={isOpen} setIsOpen={setIsOpen}/>}
       </main>
     </>
   )

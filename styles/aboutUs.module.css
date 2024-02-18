@@ -82,12 +82,17 @@
   position: absolute;
   left: 50%;
   top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
   z-index: 100;
 }
 
 .right > img {
-  height: 220px;
+  height: 100% !important;
   width: auto;
+  margin-left: -0.4rem;
 }
 
 @media screen and (max-width: 1200px) {
@@ -181,5 +186,21 @@
     height: 150px;
     padding-top: 20px;
     padding-left: 5px;
+  }
+}
+
+@media screen and (min-width: 1203px) {
+  .advantage:last-child, .advantage:nth-child(6) {
+    width: 48.8%;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  .right {
+    display: none !important;
+  }
+  .left {
+    width: 100% !important;
   }
 }

@@ -1,0 +1,110 @@
+.popUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.container {
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px;
+  z-index: 190000;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  position: fixed;
+  /* left: 0; */
+  /* margin-left: -200px; */
+  /* top: 0%; */
+  width: 500px;
+  height: 600px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: auto;
+  height: 100%;
+}
+
+.form h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form div,
+.form input,
+.form p,
+.form textarea {
+  width: 90%;
+  margin-left: auto;
+}
+
+.form input,
+.form textarea {
+  height: 45px;
+  outline: 3px solid #5900a1;
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+  border: none;
+  font-size: 18px;
+  margin-top: 0.2rem;
+}
+
+.form p,
+.form textarea {
+  margin-left: 0;
+  font-weight: 500;
+  padding: 0;
+}
+
+.form textarea {
+  width: 82%;
+  padding-top: 0.2rem;
+  margin-top: 0;
+  padding-left: 0.5rem;
+  font-weight: 400;
+  height: 100px;
+  resize: none;
+}
+
+.form button {
+  margin-top: 0.5rem;
+  border: 3px solid #5900a1;
+  width: 85%;
+  border-radius: 200px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s linear;
+}
+
+.form button:hover {
+  color: #fff;
+  background: #5900a1;
+}
+
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #0000002a;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

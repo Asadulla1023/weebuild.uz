@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation'
 const AboutUs: React.FC = () => {
     const router = useRouter()
     const path = usePathname()
-    console.log(path);
     const t = useTranslations("AboutUs")
     return (
         <div id='advantages' className={styles.aboutUs}>

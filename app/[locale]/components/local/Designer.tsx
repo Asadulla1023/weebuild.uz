@@ -6,9 +6,11 @@ import { useRouter } from "next/router";
 import { useSpring, animated } from 'react-spring';
 import { delay } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 export default function Designer() {
   // const router = useRouter()
+  const path = usePathname()
   const t = useTranslations("Designer")
   const [hovered, setHovered] = useState(false)
   return (
@@ -32,7 +34,7 @@ export default function Designer() {
             <span></span>
           </div>
         </Link>
-        <Link href={"#cost"} className={styles.buttonHoverAnimation}>{t("button")}</Link>
+        <Link href={path !== "/uz" ? "/#cost": "/uz#cost"} className={styles.buttonHoverAnimation}>{t("button")}</Link>
       </div>
     </div>
   );
