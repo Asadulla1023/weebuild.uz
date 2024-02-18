@@ -34,7 +34,7 @@ export default function Designer() {
             <span></span>
           </div>
         </Link>
-        <Link href={path !== "/uz" ? "/#cost": "/uz#cost"} className={styles.buttonHoverAnimation}>{t("button")}</Link>
+        <Link href={path !== "/uz" ? "/ru#cost": "/uz#cost"} className={styles.buttonHoverAnimation}>{t("button")}</Link>
       </div>
     </div>
   );
