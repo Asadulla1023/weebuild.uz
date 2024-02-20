@@ -26,8 +26,8 @@ const Cost = () => {
   const [prop, setProp] = useState("")
   const ads: string[] = ["Новостройка", "Вторичка"];
   const ads_uz: string[] = ["Yangi bino", "Qayta sotish"];
-  const ads2: string[] = ["Межкомнатные перегородки", "Демонтаж старого ремонта"];
-  const ads2_uz: string[] = ["Ichki qismlar", "Eski ishlarini demontaj qilish"];
+  const ads2: string[] = ["Межкомнатные перегородки", "Демонтаж старого ремонта", "Штукатурка стен"];
+  const ads2_uz: string[] = ["Ichki qismlar", "Eski ishlarini demontaj qilish", "Devorlarni gipslash"];
   const ads3: string[] = ["Стандарт", "Неоклассика", "Классика", "Хайтек", "Минимализм"];
   const ads3_uz: string[] = ["Standart", "Neoklassik", "Klassik", "Hitech", "Minimalizm"];
   const [counter, setCounter] = useState<number>(1);
@@ -37,6 +37,8 @@ const Cost = () => {
   const [abled, setAbled] = useState(false);
   const [orderOpen, setOrderOpen] = useState(false);
   const [demontajPr, setDemontajPr] = useState<number>(0)
+  const [wallTypePr, setWallTypePr] = useState<number>(0)
+  const [wallType, setWallType] = useState<boolean>(false)
   const [peregorkiPr, setPeregorkiPr] = useState<number>(0)
   const [props, setProps] = useState<ICardPrice | undefined>();
   const [overed, setOvered] = useState<string>("");
@@ -239,10 +241,32 @@ const Cost = () => {
                                 height={245}
                               />
                               <p>{path === "/" ? "Демонтаж старого ремонта" : ads2_uz[1]}</p>
-                            </div></>
+                            </div>
+                            <div
+                              className={
+                                wallType === true
+                                  ? `${styles.checkbox} ${styles.boxShadow}`
+                                  : styles.checkbox
+                              }
+                              onClick={() => {
+                                setWallTypePr(
+                                  7
+                                );
+                                wallType === true ? setWallType(false) : setWallType(true)
+                              }}
+                            >
+                              <Image
+                                src={`/images/select5.png`}
+                                alt="decorate"
+                                width={380}
+                                height={245}
+                              />
+                              <p>{path === "/" ? "Штукатурка стен" : ads2_uz[2]}</p>
+                            </div>
+                          </>
                         )}
                     </div>
-                    <Link href="#cost"
+                    <Link href={path === "/uz" ? "/uz/#cost" : "/ru/#cost"}
                       className={
                         hovered === true ? styles.animate : styles.noneAnimation
                       }
@@ -308,13 +332,18 @@ const Cost = () => {
                 <div className={styles.selection}>
                   <div className={styles.container}>
                     <div className={styles.sectS}>
-                      <div className={styles.sect}>
+                      <div style={{
+                        overflow: 'hidden',
+                      }} className={styles.sect}>
                         <h4>{t("subtitle3")}</h4>
                         <Image
-                          src={"/images/livinroom.png"}
+                          src={"/images/maket.png"}
                           alt=" image of livin room"
                           width={780}
-                          height={387}
+                          style={{
+                            overflow: "hidden"
+                          }}
+                          height={587}
                         />
                         <div className={styles.multiRange}>
                           <MultiRangeSlider
@@ -573,6 +602,7 @@ const Cost = () => {
                                 setSelected(e);
                                 if (e === "Новостройка") {
                                   setDemontajPr(0)
+                                  setWallTypePr(0)
                                 }
                               }}
                             >
@@ -712,7 +742,32 @@ const Cost = () => {
                               />
                               <p>{path === "/" ? "Демонтаж старого ремонта" : "Eski ishlarini demontaj qilish"}</p>
                             </div>
-
+                            <div
+                              className={
+                                styles.checkboxInput
+                              }
+                              onClick={() => {
+                                if (wallTypePr === 7) {
+                                  setWallTypePr(0)
+                                }
+                                if (wallTypePr === 0) {
+                                  setWallTypePr(7)
+                                }
+                                setWallType(!wallType)
+                              }}
+                            >
+                              <input
+                                style={
+                                  wallTypePr === 7
+                                    ? {
+                                      background: "#46247c",
+                                    }
+                                    : {}
+                                }
+                                type="checkbox"
+                              />
+                              <p>{path === "/" ? "Штукатурка стен" : "Devorlarni gipslash"}</p>
+                            </div>
                           </>
                         )}
                       </div>
@@ -788,13 +843,12 @@ const Cost = () => {
                               }
                               onClick={() => {
                                 setSelectedRepair(e);
-                                if (e === ads3[4]) {
-                                  setAddPrice1(7)
-                                }
-                                if (e !== ads3[0] && e !== ads3[4]) {
-                                  setAddPrice1(13)
-                                } else {
+                                if (e === "Стандарт") {
                                   setAddPrice1(0)
+                                } else if (e === "Минимализм") {
+                                  setAddPrice1(7)
+                                } else {
+                                  setAddPrice1(13)
                                 }
                               }}
                             >
@@ -822,7 +876,7 @@ const Cost = () => {
                               }
                               onClick={() => {
                                 setSelectedRepair(e);
-                                if (e !== ads3_uz[0] && e !==ads3_uz[4]) {
+                                if (e !== ads3_uz[0] && e !== ads3_uz[4]) {
                                   setAddPrice(13)
                                 } else {
                                   setAddPrice(0)
@@ -912,13 +966,13 @@ const Cost = () => {
                             setOrderOpen(!orderOpen);
                             setProps(prop);
                             path === "/" ? setTotalPrice(
-                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice1 * val
+                              prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr * val + addPrice2 * val + addPrice1 * val
                             ) : setTotalPrice(
-                              prop.price * val + changed
+                              prop.price * val + changed + wallTypePr * val
                             );
                           }}
                         >
-                          {path === "/" ? prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice1 * val : prop.price * val + changed}$
+                          {path === "/" ? prop.price * val + demontajPr * val + wallTypePr * val + peregorkiPr * val + addPrice2 * val + addPrice1 * val : prop.price * val + changed}$
                         </button>
                       </div>
                     );
@@ -953,11 +1007,11 @@ const Cost = () => {
                             setOrderOpen(!orderOpen);
                             setProps(prop);
                             setTotalPrice(
-                              prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice * val
+                              prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr*val + addPrice2 * val + addPrice * val
                             );
                           }}
                         >
-                          {prop.price * val + demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice * val}$
+                          {prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr*val + addPrice2 * val + addPrice * val}$
                         </button>
                       </div>
                     );

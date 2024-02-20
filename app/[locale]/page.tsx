@@ -16,10 +16,11 @@ import Contact from "./components/local/Contact";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import PopUp from './components/local/PopUp';
 export default function Home() {
   const t = useTranslations("Header");
+  const { refresh } = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [modal, setModal] = useState<boolean>(false)
   const { scrollYProgress } = useScroll();
@@ -28,18 +29,26 @@ export default function Home() {
     damping: 30,
     restDelta: 0.001
   });
-  useEffect(()=> {
+  const path = usePathname()
+  useEffect(() => {
     if (isOpen === true) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
   }, [isOpen])
-  useEffect(()=> {
-    setTimeout(()=> {
+  useEffect(() => {
+    setInterval(() => {
       setIsOpen(true)
-    }, 25000)
+    }, 85000)
   }, [])
+  useEffect(() => {
+    if (path === "/uz") {
+      refresh()
+    } else {
+      refresh()
+    }
+  }, [path])
   return (
     <>
       <motion.div className={styles.progressBar} style={{ scaleX }} />
@@ -134,7 +143,7 @@ export default function Home() {
             }
           </button>
         </div>
-        {isOpen === true && <PopUp isOpen={isOpen} setIsOpen={setIsOpen}/>}
+        {isOpen === true && <PopUp isOpen={isOpen} setIsOpen={setIsOpen} />}
       </main>
     </>
   )
