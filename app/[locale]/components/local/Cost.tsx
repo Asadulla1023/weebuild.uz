@@ -86,7 +86,9 @@ const Cost = () => {
                     <div className={styles.controller}>
                       {contoller.map((e: number) => {
                         return (
-                          <div key={uuidv4()} className={styles.control}>
+                          <div key={uuidv4()} onClick={()=> {
+                            setCounter(e)
+                          }} className={styles.control}>
                             {e > 1 ? (
                               <div className={styles.line}>
                                 <svg
@@ -291,7 +293,9 @@ const Cost = () => {
                   {contoller.map((e: number) => {
                     const id = uuidv4();
                     return (
-                      <div key={id} className={styles.control}>
+                      <div key={id} onClick={()=> {
+                        setCounter(e)
+                      }} className={styles.control}>
                         {e > 1 ? (
                           <div className={styles.line}>
                             <svg
@@ -404,7 +408,9 @@ const Cost = () => {
                   {contoller.map((e: number) => {
                     const id = uuidv4();
                     return (
-                      <div key={id} className={styles.control}>
+                      <div key={id} onClick={()=> {
+                        setCounter(e)
+                      }} className={styles.control}>
                         {e > 1 ? (
                           <div className={styles.line}>
                             <svg
@@ -545,7 +551,9 @@ const Cost = () => {
                 <div className={styles.controller}>
                   {contoller.map((e: number) => {
                     return (
-                      <div key={uuidv4()} className={styles.control}>
+                      <div key={uuidv4()} onClick={()=> {
+                        setCounter(e)
+                      }} className={styles.control}>
                         {e > 1 ? (
                           <div className={styles.line}>
                             <svg
@@ -599,7 +607,7 @@ const Cost = () => {
                                   : styles.checkboxInput
                               }
                               onClick={() => {
-                                setSelected(e);
+                                setSelected(e); 
                                 if (e === "Новостройка") {
                                   setDemontajPr(0)
                                   setWallTypePr(0)
