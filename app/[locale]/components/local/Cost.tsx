@@ -86,7 +86,7 @@ const Cost = () => {
                     <div className={styles.controller}>
                       {contoller.map((e: number) => {
                         return (
-                          <div key={uuidv4()} onClick={()=> {
+                          <div key={uuidv4()} onClick={() => {
                             setCounter(e)
                           }} className={styles.control}>
                             {e > 1 ? (
@@ -182,25 +182,47 @@ const Cost = () => {
                     <h3>{t("subtitle2")}</h3>
                     <div className={styles.checks}>
                       {path === "/" && selected === "Новостройка" || path === "/uz" && selected === "Yangi bino" ? <>
-                        <div
-                          className={
-                            peregorki === true
-                              ? `${styles.checkbox} ${styles.boxShadow}`
-                              : styles.checkbox
-                          }
-                          onClick={() => {
-                            setPeregorkiPr(15)
-                            setPeregorki(!peregorki)
-                          }}
-                        >
-                          <Image
-                            src={`/images/select3.png`}
-                            alt="decorate"
-                            width={380}
-                            height={245}
-                          />
-                          <p>{path === "/" ? "Межкомнатные перегородки" : ads2_uz[0]}</p>
-                        </div>
+                        <>
+                          <div
+                            className={
+                              peregorki === true
+                                ? `${styles.checkbox} ${styles.boxShadow}`
+                                : styles.checkbox
+                            }
+                            onClick={() => {
+                              setPeregorkiPr(15)
+                              setPeregorki(!peregorki)
+                            }}
+                          >
+                            <Image
+                              src={`/images/select3.png`}
+                              alt="decorate"
+                              width={380}
+                              height={245}
+                            />
+                            <p>{path === "/" ? "Межкомнатные перегородки" : ads2_uz[0]}</p>
+                          </div>
+                          <div
+                            className={
+                              wallType === true && selected === "Новостройка" ||  "Yangi bino"
+                                ? `${styles.checkbox} ${styles.boxShadow}`
+                                : styles.checkbox
+                            }
+                            onClick={() => {
+                              setWallTypePr(
+                                7
+                              );
+                              wallType === true ? setWallType(false) : setWallType(true)
+                            }}
+                          >
+                            <Image
+                              src={`/images/select5.png`}
+                              alt="decorate"
+                              width={380}
+                              height={245}
+                            />
+                            <p>{path === "/" ? "Штукатурка стен" : ads2_uz[2]}</p>
+                          </div></>
                       </>
                         : (
                           <>
@@ -244,27 +266,6 @@ const Cost = () => {
                               />
                               <p>{path === "/" ? "Демонтаж старого ремонта" : ads2_uz[1]}</p>
                             </div>
-                            <div
-                              className={
-                                wallType === true
-                                  ? `${styles.checkbox} ${styles.boxShadow}`
-                                  : styles.checkbox
-                              }
-                              onClick={() => {
-                                setWallTypePr(
-                                  7
-                                );
-                                wallType === true ? setWallType(false) : setWallType(true)
-                              }}
-                            >
-                              <Image
-                                src={`/images/select5.png`}
-                                alt="decorate"
-                                width={380}
-                                height={245}
-                              />
-                              <p>{path === "/" ? "Штукатурка стен" : ads2_uz[2]}</p>
-                            </div>
                           </>
                         )}
                     </div>
@@ -293,7 +294,7 @@ const Cost = () => {
                   {contoller.map((e: number) => {
                     const id = uuidv4();
                     return (
-                      <div key={id} onClick={()=> {
+                      <div key={id} onClick={() => {
                         setCounter(e)
                       }} className={styles.control}>
                         {e > 1 ? (
@@ -408,7 +409,7 @@ const Cost = () => {
                   {contoller.map((e: number) => {
                     const id = uuidv4();
                     return (
-                      <div key={id} onClick={()=> {
+                      <div key={id} onClick={() => {
                         setCounter(e)
                       }} className={styles.control}>
                         {e > 1 ? (
@@ -473,7 +474,7 @@ const Cost = () => {
                                 setAddPrice1(13);
                               }
                               if (e === "Минимализм") {
-                                setAddPrice1(7)
+                                setAddPrice1(15)
                               }
                               if (e === "Под дизайн") {
                                 setAddPrice1(0);
@@ -509,7 +510,7 @@ const Cost = () => {
                                 setAddPrice(13);
                               }
                               if (e === ads3_uz[4]) {
-                                setAddPrice1(7)
+                                setAddPrice1(15)
                               }
                               if (e === ads3_uz[2]) {
                                 setAddPrice(13);
@@ -551,7 +552,7 @@ const Cost = () => {
                 <div className={styles.controller}>
                   {contoller.map((e: number) => {
                     return (
-                      <div key={uuidv4()} onClick={()=> {
+                      <div key={uuidv4()} onClick={() => {
                         setCounter(e)
                       }} className={styles.control}>
                         {e > 1 ? (
@@ -607,7 +608,7 @@ const Cost = () => {
                                   : styles.checkboxInput
                               }
                               onClick={() => {
-                                setSelected(e); 
+                                setSelected(e);
                                 if (e === "Новостройка") {
                                   setDemontajPr(0)
                                   setWallTypePr(0)
@@ -691,7 +692,32 @@ const Cost = () => {
                               />
                               <p>{path === "/" ? "Межкомнатные перегородки" : ads2_uz[0]}</p>
                             </div>
-
+                            <div
+                              className={
+                                styles.checkboxInput
+                              }
+                              onClick={() => {
+                                if (wallTypePr === 7) {
+                                  setWallTypePr(0)
+                                }
+                                if (wallTypePr === 0) {
+                                  setWallTypePr(7)
+                                }
+                                setWallType(!wallType)
+                              }}
+                            >
+                              <input
+                                style={
+                                  wallTypePr === 7
+                                    ? {
+                                      background: "#46247c",
+                                    }
+                                    : {}
+                                }
+                                type="checkbox"
+                              />
+                              <p>{path === "/" ? "Штукатурка стен" : "Devorlarni gipslash"}</p>
+                            </div>
                           </>
                         ) : (
                           <>
@@ -749,32 +775,6 @@ const Cost = () => {
                                 type="checkbox"
                               />
                               <p>{path === "/" ? "Демонтаж старого ремонта" : "Eski ishlarini demontaj qilish"}</p>
-                            </div>
-                            <div
-                              className={
-                                styles.checkboxInput
-                              }
-                              onClick={() => {
-                                if (wallTypePr === 7) {
-                                  setWallTypePr(0)
-                                }
-                                if (wallTypePr === 0) {
-                                  setWallTypePr(7)
-                                }
-                                setWallType(!wallType)
-                              }}
-                            >
-                              <input
-                                style={
-                                  wallTypePr === 7
-                                    ? {
-                                      background: "#46247c",
-                                    }
-                                    : {}
-                                }
-                                type="checkbox"
-                              />
-                              <p>{path === "/" ? "Штукатурка стен" : "Devorlarni gipslash"}</p>
                             </div>
                           </>
                         )}
@@ -854,7 +854,7 @@ const Cost = () => {
                                 if (e === "Стандарт") {
                                   setAddPrice1(0)
                                 } else if (e === "Минимализм") {
-                                  setAddPrice1(7)
+                                  setAddPrice1(15)
                                 } else {
                                   setAddPrice1(13)
                                 }
@@ -890,7 +890,7 @@ const Cost = () => {
                                   setAddPrice(0)
                                 }
                                 if (e === ads3[4]) {
-                                  setAddPrice1(7)
+                                  setAddPrice1(15)
                                 }
                               }}
                             >
@@ -1015,11 +1015,11 @@ const Cost = () => {
                             setOrderOpen(!orderOpen);
                             setProps(prop);
                             setTotalPrice(
-                              prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr*val + addPrice2 * val + addPrice * val
+                              prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr * val + addPrice2 * val + addPrice * val
                             );
                           }}
                         >
-                          {prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr*val + addPrice2 * val + addPrice * val}$
+                          {prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr * val + addPrice2 * val + addPrice * val}$
                         </button>
                       </div>
                     );

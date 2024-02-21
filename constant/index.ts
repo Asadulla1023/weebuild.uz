@@ -320,7 +320,7 @@ export const LOGO = [
   },
   {
     image: "/images/namunaLogo.png",
-    url: "https://nur.namunadevelopment.uz/"
+    url: "https://midea.uz/"
   },
   {
     image: "/images/boschLogo.png",
@@ -338,6 +338,66 @@ export const LOGO = [
   {
     image: "/images/vLogo.png",
     url: "https://vitra.uz/"
+  },
+  {
+    image: "/images/mexmashLogo.png",
+    url: "https://mexmash.uz/uz"
+  },
+  {
+    image: "/images/waterPro.svg",
+    url: "https://waterpro.uz/"
+  },
+  {
+    image: "/images/homeSpot.png",
+    url: "https://www.homespot.uz/"
+  },
+  {
+    image: "/images/eleronLogo.png",
+    url: "https://eleron.com.uz"
+  },
+  {
+    image: "/images/estetLogo.svg",
+    url: "https://estetdveri.uz/uz/"
+  },
+  {
+    image: "/images/hoffmanLogo.png",
+    url: "https://www.hofmann.uz/"
+  },
+  {
+    image: "/images/samsungLogo.svg",
+    url: "https://www.samsung.com/uz_ru/"
+  },
+  {
+    image: "/images/floorPan.svg",
+    url: "https://floorpan.uz/"
+  },
+  {
+    image: "/images/gipsDecor.png",
+    url: "https://gipsdecor.uz/"
+  },
+  {
+    image: "/images/mirKafel.png",
+    url: "https://www.instagram.com/mir_kafel_tarkett/"
+  },
+  {
+    image: "/images/artMix.jpg",
+    url: "https://www.instagram.com/artmixmarket.uz/"
+  },
+  {
+    image: "/images/chintLogo.png",
+    url: "https://minora.uz/info/brands/chint/"
+  },
+  {
+    image: "/images/uzKabel.png",
+    url: "https://uzkabel.uz/"
+  },
+  {
+    image: "/images/imzoLogo.png",
+    url: "https://imzo.uz/"
+  },
+  {
+    image: "/images/kraabLogo.jpg",
+    url: "https://www.instagram.com/europrofil.uz/"
   },
 ];
 

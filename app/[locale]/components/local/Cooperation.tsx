@@ -18,7 +18,7 @@ const Cooperation = () => {
           <div className={styles.cooperationCard}>
             {LOGO.map((e) => {
               return (
-                <Link href={`${e.url}`} key={uuidv4()} className={styles.card}>
+                <Link target="_blank" href={`${e.url}`} key={uuidv4()} className={styles.card}>
                   <Image src={e.image} width={330} height={200} alt="logo"/>
                 </Link>
               );
