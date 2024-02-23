@@ -399,6 +399,26 @@ export const LOGO = [
     image: "/images/kraabLogo.jpg",
     url: "https://www.instagram.com/europrofil.uz/"
   },
+  {
+    image: "/images/dyoLogo.png",
+    url: "https://www.dyo.com.tr/ru/"
+  },
+  {
+    image: "/images/veroLogo.png",
+    url: "https://vero.uz/"
+  },
+  {
+    image: "/images/rabosaLogo.png",
+    url: "https://rabosa.uz/"
+  },
+  {
+    image: "/images/buchenLogo.jpg",
+    url: "https://www.instagram.com/buchen_uz/"
+  },
+  {
+    image: "/images/firatLogo.png",
+    url: "https://www.firat.com/ru-ru/firat-pipe"
+  },
 ];
 
 export const MODAL = [
