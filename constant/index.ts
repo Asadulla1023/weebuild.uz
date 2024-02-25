@@ -380,8 +380,8 @@ export const LOGO = [
     url: "https://www.instagram.com/mir_kafel_tarkett/"
   },
   {
-    image: "/images/artMix.jpg",
-    url: "https://www.instagram.com/artmixmarket.uz/"
+    image: "/images/bestLogo.jpg",
+    url: "https://www.instagram.com/best_glass_toshkent"
   },
   {
     image: "/images/chintLogo.png",
@@ -418,6 +418,14 @@ export const LOGO = [
   {
     image: "/images/firatLogo.png",
     url: "https://www.firat.com/ru-ru/firat-pipe"
+  },
+  {
+    image: "/images/nanoLogo.jpg",
+    url: "https://www.instagram.com/nano.ccs?igsh=MWtrYjd3YzBpcnlmeg%3D%3D"
+  },
+  {
+    image: "/images/kashtanLogo.jpg",
+    url: "https://www.instagram.com/kashtan_luxury_mebel_project/"
   },
 ];
 
