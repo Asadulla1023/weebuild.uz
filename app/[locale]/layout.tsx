@@ -26,10 +26,11 @@ export default async function LocaleLayout({children, params: {locale}}:any) {
           {children}
         </NextIntlClientProvider> */}
           <h1 style={{
-            width: "100vh",
-            height: "100vh",
+            width: "100%",
+            height: "100%",
             textAlign: "center",
-            paddingTop: "40%"
+            // paddingTop: "10%"
+            marginTop: "25%"
           }}>Сайт находится в режиме разработки</h1>
       </body>
     </html>
