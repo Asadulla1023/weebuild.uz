@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import styles from "@/styles/design.module.css";
 import ICardProps from "@/interfaces/ICardProps";
 import Image from "next/image";
@@ -14,7 +14,10 @@ import { CARD_OBJECT_DESIGN, CARD_OBJECT_DESIGN_UZ } from "@/constant";
 import { v4 as uuidv4 } from "uuid";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
-const Design = () => {
+interface DesignProps {
+  setIsOpen: Dispatch<SetStateAction<boolean>>
+}
+const Design: React.FC<DesignProps> = ({ setIsOpen }) => {
   const t = useTranslations("Design")
   const path = usePathname()
   return (
@@ -23,9 +26,30 @@ const Design = () => {
         <div className={styles.designSection}>
           <div className={styles.designTitle}>
             <h1>{t("title")}</h1>
-            <p>
-              {t("description")}
-            </p>
+            <div className={styles.aboutSection}>
+              <div className={styles.sides}>
+                <p>
+                  {t("description")}
+                </p>
+                <div className={styles.infos}>
+                  <button onClick={()=> {
+                    setIsOpen((prev) => !prev)
+                  }}>{path === "/uz" ?"Buyurtma" :"Заказать"}</button>
+                  <p className={styles.info}>
+                    <Image src={"/icons/award.svg"} width={32} height={32} alt="award icon" />
+                    {path === "/uz" ? "15 yillik tajribaga ega dizaynerlar" : "Дизайнеров с опытом 15 лет"}
+                  </p>
+                </div>
+              </div>
+              <div className={styles.sides}>
+                <Image src={"/images/maket.png"} width={500} height={280} alt="" />
+              </div>
+            </div>
+          </div>
+          <div className={styles.designTitle}>
+            <h1 style={{
+              fontSize: 34
+            }}>{path === "/uz" ? "Bizning loyihalarimiz" : "Наши проекты"}</h1>
           </div>
           <div className={styles.designCard}>
             <Swiper

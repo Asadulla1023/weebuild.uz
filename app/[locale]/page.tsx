@@ -58,7 +58,7 @@ export default function Home() {
         <Company />
         <AboutUs />
         <Cost />
-        <Design />
+        <Design setIsOpen={setIsOpen} />
         <Cooperation />
         <Faq />
         <Contact />
