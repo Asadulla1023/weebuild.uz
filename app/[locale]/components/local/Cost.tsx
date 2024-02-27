@@ -948,6 +948,9 @@ const Cost = () => {
                       <div key={uuidv4()} className={styles.cardPriceItem}>
                         <Image
                           src={prop.image}
+                          style={{
+                            borderRadius: 25
+                          }}
                           width={380}
                           height={245}
                           alt={prop.title}
@@ -991,6 +994,9 @@ const Cost = () => {
                           src={prop.image}
                           width={380}
                           height={245}
+                          style={{
+                            borderRadius: 20
+                          }}  
                           alt={prop.title}
                         />
                         <div className={styles.desc}>
@@ -1002,7 +1008,7 @@ const Cost = () => {
                         <button
                           className={
                             overed === prop.title
-                              ? styles.animate
+                              ? styles.animate0
                               : styles.noneAnimation
                           }
                           onMouseOver={() => {
