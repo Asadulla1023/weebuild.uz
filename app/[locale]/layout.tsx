@@ -21,19 +21,10 @@ export default async function LocaleLayout({children, params: {locale}}:any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/logo.png" />
       </head>
-      <body style={ {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minWidth: "100vw",
-        minHeight: "100vh",
-      }}>
-        {/* <NextIntlClientProvider locale={locale} messages={messages}>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
-        </NextIntlClientProvider> */}
-        <h1 style={{
-          textAlign: "center",
-        }}>Сайт временно находится в режиме разработки.</h1>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
