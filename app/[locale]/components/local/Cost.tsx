@@ -25,7 +25,7 @@ const Cost = () => {
   const [properties, setProperties] = useState()
   const [prop, setProp] = useState("")
   const ads: string[] = ["Новостройка", "Вторичка"];
-  const ads_uz: string[] = ["Yangi bino", "Qayta sotish"];
+  const ads_uz: string[] = ["Yangi bino", "Ikkilamchi uy"];
   const ads2: string[] = ["Межкомнатные перегородки", "Демонтаж старого ремонта", "Штукатурка стен"];
   const ads2_uz: string[] = ["Ichki qismlar", "Eski ishlarini demontaj qilish", "Shtukaturka"];
   const ads3: string[] = ["Стандарт", "Неоклассика", "Классика", "Хайтек", "Минимализм"];
@@ -166,6 +166,9 @@ const Cost = () => {
                             onClick={() => {
                               setSelected(e)
                               setDemontaj(false)
+                              if (e === ads_uz[1] || e === ads[1]) {
+                                setWallTypePr(0)
+                              }
                             }}
                           >
                             <Image
@@ -204,11 +207,12 @@ const Cost = () => {
                           </div>
                           <div
                             className={
-                              wallType === true && selected === "Новостройка" ||  "Yangi bino" && wallTypePr === 7
+                              wallType === true && selected === "Новостройка" || selected === "Yangi bino" && wallTypePr === 7
                                 ? `${styles.checkbox} ${styles.boxShadow}`
                                 : styles.checkbox
                             }
                             onClick={() => {
+                              console.log(wallTypePr);
                               if (wallTypePr === 7) {
                                 setWallTypePr(
                                   0
@@ -621,6 +625,9 @@ const Cost = () => {
                                   setDemontajPr(0)
                                   setWallTypePr(0)
                                 }
+                                if (e === "Вторичка" || e === 'Ikkilamchi uy') {
+                                  setWallTypePr(0)
+                                }
                               }}
                             >
                               <input
@@ -652,6 +659,9 @@ const Cost = () => {
                                 }
                                 if (e === ads_uz[0]) {
                                   setDemontajPr(0)
+                                }
+                                if (e === "Вторичка" || e === 'Ikkilamchi uy') {
+                                  setWallTypePr(0)
                                 }
                               }}
                             >
@@ -724,7 +734,7 @@ const Cost = () => {
                                 }
                                 type="checkbox"
                               />
-                              <p>{path === "/" ? "Штукатурка стен" : "Devorlarni gipslash"}</p>
+                              <p>{path === "/" ? "Штукатурка стен" : "Shtukaturka"}</p>
                             </div>
                           </>
                         ) : (
@@ -892,12 +902,12 @@ const Cost = () => {
                               }
                               onClick={() => {
                                 setSelectedRepair(e);
-                                if (e !== ads3_uz[0] && e !== ads3_uz[4]) {
-                                  setAddPrice(13)
+                                if (e === "Standart") {
+                                  setAddPrice1(0)
                                 } else {
-                                  setAddPrice(0)
+                                  setAddPrice1(13)
                                 }
-                                if (e === ads3[4]) {
+                                if (e === "Minimalizm") {
                                   setAddPrice1(15)
                                 }
                               }}
@@ -1004,7 +1014,7 @@ const Cost = () => {
                           height={145}
                           style={{
                             borderRadius: 20
-                          }}  
+                          }}
                           alt={prop.title}
                         />
                         <div className={styles.desc}>
