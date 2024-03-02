@@ -474,6 +474,11 @@
   background: #000;
 }
 
+.checkbox > img, .cardPriceItem > img {
+  width: 380px;
+  height: 245px;
+}
+
 .selectRoom {
   display: flex;
   flex-wrap: wrap;

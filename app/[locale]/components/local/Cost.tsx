@@ -145,11 +145,11 @@ const Cost = () => {
                             <Image
                               src={`/images/select${index + 1}.png`}
                               alt="decorate"
-                              width={380}
-                              style={{
-                                borderRadius: 20
-                              }}
-                              height={245}
+                              width={180}
+                              // style={{
+                              //   borderRadius: 20,
+                              // }}
+                              height={145}
                             />
                             <p>{e}</p>
                           </div>
@@ -171,8 +171,8 @@ const Cost = () => {
                             <Image
                               src={`/images/select${index + 1}.png`}
                               alt="decorate"
-                              width={380}
-                              height={245}
+                              width={180}
+                              height={145}
                             />
                             <p>{e}</p>
                           </div>
@@ -197,29 +197,35 @@ const Cost = () => {
                             <Image
                               src={`/images/select3.png`}
                               alt="decorate"
-                              width={380}
-                              height={245}
+                              width={180}
+                              height={145}
                             />
                             <p>{path === "/" ? "Межкомнатные перегородки" : ads2_uz[0]}</p>
                           </div>
                           <div
                             className={
-                              wallType === true && selected === "Новостройка" ||  "Yangi bino"
+                              wallType === true && selected === "Новостройка" ||  "Yangi bino" && wallTypePr === 7
                                 ? `${styles.checkbox} ${styles.boxShadow}`
                                 : styles.checkbox
                             }
                             onClick={() => {
-                              setWallTypePr(
-                                7
-                              );
+                              if (wallTypePr === 7) {
+                                setWallTypePr(
+                                  0
+                                );
+                              } else {
+                                setWallTypePr(
+                                  7
+                                );
+                              }
                               wallType === true ? setWallType(false) : setWallType(true)
                             }}
                           >
                             <Image
                               src={`/images/select5.png`}
                               alt="decorate"
-                              width={380}
-                              height={245}
+                              width={180}
+                              height={145}
                             />
                             <p>{path === "/" ? "Штукатурка стен" : ads2_uz[2]}</p>
                           </div></>
@@ -240,8 +246,8 @@ const Cost = () => {
                               <Image
                                 src={`/images/select3.png`}
                                 alt="decorate"
-                                width={380}
-                                height={245}
+                                width={180}
+                                height={145}
                               />
                               <p>{path === "/" ? ads2[0] : ads2_uz[0]}</p>
                             </div>
@@ -261,8 +267,8 @@ const Cost = () => {
                               <Image
                                 src={`/images/select4.png`}
                                 alt="decorate"
-                                width={380}
-                                height={245}
+                                width={180}
+                                height={145}
                               />
                               <p>{path === "/" ? "Демонтаж старого ремонта" : ads2_uz[1]}</p>
                             </div>
@@ -951,8 +957,8 @@ const Cost = () => {
                           style={{
                             borderRadius: 25
                           }}
-                          width={380}
-                          height={245}
+                          width={180}
+                          height={145}
                           alt={prop.title}
                         />
                         <div className={styles.desc}>
@@ -992,8 +998,8 @@ const Cost = () => {
                       <div key={uuidv4()} className={styles.cardPriceItem}>
                         <Image
                           src={prop.image}
-                          width={380}
-                          height={245}
+                          width={180}
+                          height={145}
                           style={{
                             borderRadius: 20
                           }}  
@@ -1008,7 +1014,7 @@ const Cost = () => {
                         <button
                           className={
                             overed === prop.title
-                              ? styles.animate0
+                              ? styles.animate
                               : styles.noneAnimation
                           }
                           onMouseOver={() => {
