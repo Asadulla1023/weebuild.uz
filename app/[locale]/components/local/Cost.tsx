@@ -27,7 +27,7 @@ const Cost = () => {
   const ads: string[] = ["Новостройка", "Вторичка"];
   const ads_uz: string[] = ["Yangi bino", "Qayta sotish"];
   const ads2: string[] = ["Межкомнатные перегородки", "Демонтаж старого ремонта", "Штукатурка стен"];
-  const ads2_uz: string[] = ["Ichki qismlar", "Eski ishlarini demontaj qilish", "Devorlarni gipslash"];
+  const ads2_uz: string[] = ["Ichki qismlar", "Eski ishlarini demontaj qilish", "Shtukaturka"];
   const ads3: string[] = ["Стандарт", "Неоклассика", "Классика", "Хайтек", "Минимализм"];
   const ads3_uz: string[] = ["Standart", "Neoklassik", "Klassik", "Hitech", "Minimalizm"];
   const [counter, setCounter] = useState<number>(1);
