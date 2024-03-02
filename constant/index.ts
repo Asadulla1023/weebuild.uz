@@ -336,7 +336,7 @@ export const LOGO = [
     url: "https://doorandmore.uz/"
   },
   {
-    image: "/images/vLogo.png",
+    image: "/images/vitraLogo.png",
     url: "https://vitra.uz/"
   },
   {
