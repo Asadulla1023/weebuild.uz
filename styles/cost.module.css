@@ -692,7 +692,13 @@
     height: 60px;
     /* font-size: 20px !important; */
   }
-
+  .checksRep, .checks {
+    flex-wrap: wrap !important;
+    gap: 0.3rem;
+  }
+  .checkboxRep, .checkbox {
+    width: 48% !important;
+  }
   .checkbox > p,
   .checkboxRep > p {
     font-size: 13px;
@@ -728,20 +734,13 @@
     border-radius: 10px;
   }
 
-  .checks {
-    flex-direction: column;
-  }
-  .checkbox {
-    width: 70%;
-  }
-
   .selection h3 {
     font-size: 25px;
   }
 
   .checks img {
     width: 100% !important;
-    height: auto;
+    height: 123px;
   }
 
   .val {
