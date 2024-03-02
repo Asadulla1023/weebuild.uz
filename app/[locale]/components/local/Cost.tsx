@@ -140,6 +140,9 @@ const Cost = () => {
                             onClick={() => {
                               setSelected(e)
                               setDemontaj(false)
+                              if (e === ads_uz[1] || e === ads[1]) {
+                                setWallTypePr(0)
+                              }
                             }}
                           >
                             <Image
