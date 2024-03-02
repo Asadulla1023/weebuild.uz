@@ -515,8 +515,10 @@ const Cost = () => {
                               if (e === ads3_uz[1]) {
                                 setAddPrice(13);
                               }
-                              if (e === ads3_uz[4]) {
+                              if (e === "Minimalizm") {
                                 setAddPrice1(15)
+                                console.log("wefwef");
+                                console.log(addPrice1);
                               }
                               if (e === ads3_uz[2]) {
                                 setAddPrice(13);
@@ -985,7 +987,7 @@ const Cost = () => {
                             path === "/" ? setTotalPrice(
                               prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr * val + addPrice2 * val + addPrice1 * val
                             ) : setTotalPrice(
-                              prop.price * val + changed + wallTypePr * val
+                              prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr * val + addPrice2 * val + addPrice1 * val
                             );
                           }}
                         >
@@ -1027,11 +1029,11 @@ const Cost = () => {
                             setOrderOpen(!orderOpen);
                             setProps(prop);
                             setTotalPrice(
-                              prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr * val + addPrice2 * val + addPrice * val
+                              prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr * val + addPrice2 * val + addPrice1 * val
                             );
                           }}
                         >
-                          {prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr * val + addPrice2 * val + addPrice * val}$
+                          {prop.price * val + demontajPr * val + peregorkiPr * val + wallTypePr * val + addPrice2 * val + addPrice1 * val}$
                         </button>
                       </div>
                     );
