@@ -22,12 +22,9 @@ export default async function LocaleLayout({children, params: {locale}}:any) {
         <link rel="icon" href="/images/logo.png" />
       </head>
       <body>
-        {/* <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
-        </NextIntlClientProvider> */}
-        <h1 style={{
-          textAlign: "center"
-        }}>сайт временно находится в режиме разработки</h1>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
