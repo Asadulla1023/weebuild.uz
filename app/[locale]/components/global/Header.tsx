@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+// @ts-ignore
 import styles from "@/styles/header.module.css"
 import Image from 'next/image'
 import Link from 'next/link'

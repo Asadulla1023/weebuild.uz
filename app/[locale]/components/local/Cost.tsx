@@ -68,7 +68,7 @@ const Cost = () => {
   useEffect(() => {
     if (selectedRepair === ads3_uz[1] || selectedRepair === ads3_uz[2]) {
       setChanged(demontajPr * val + peregorkiPr * val + addPrice2 * val + addPrice * val)
-      setAddPrice(13)
+      setAddPrice(15)
     }
   }, [selectedRepair])
   const t = useTranslations("Calculation")
@@ -210,19 +210,19 @@ const Cost = () => {
                           </div>
                           <div
                             className={
-                              wallType === true && selected === "Новостройка" || selected === "Yangi bino" && wallTypePr === 7
+                              wallType === true && selected === "Новостройка" || selected === "Yangi bino" && wallTypePr === 15
                                 ? `${styles.checkbox} ${styles.boxShadow}`
                                 : styles.checkbox
                             }
                             onClick={() => {
                               console.log(wallTypePr);
-                              if (wallTypePr === 7) {
+                              if (wallTypePr === 15) {
                                 setWallTypePr(
                                   0
                                 );
                               } else {
                                 setWallTypePr(
-                                  7
+                                  15
                                 );
                               }
                               wallType === true ? setWallType(false) : setWallType(true)
@@ -481,13 +481,13 @@ const Cost = () => {
                                 setAddPrice1(0);
                               }
                               if (e === "Неоклассика") {
-                                setAddPrice1(13);
+                                setAddPrice1(15);
                               }
                               if (e === "Классика") {
-                                setAddPrice1(13);
+                                setAddPrice1(15);
                               }
                               if (e === "Минимализм") {
-                                setAddPrice1(15)
+                                setAddPrice1(20)
                               }
                               if (e === "Под дизайн") {
                                 setAddPrice1(0);
@@ -520,15 +520,15 @@ const Cost = () => {
                                 setAddPrice(0);
                               }
                               if (e === ads3_uz[1]) {
-                                setAddPrice(13);
+                                setAddPrice(15);
                               }
                               if (e === "Minimalizm") {
-                                setAddPrice1(15)
+                                setAddPrice1(20)
                                 console.log("wefwef");
                                 console.log(addPrice1);
                               }
                               if (e === ads3_uz[2]) {
-                                setAddPrice(13);
+                                setAddPrice(15);
                               }
                             }}
                           >
@@ -718,18 +718,18 @@ const Cost = () => {
                                 styles.checkboxInput
                               }
                               onClick={() => {
-                                if (wallTypePr === 7) {
+                                if (wallTypePr === 15) {
                                   setWallTypePr(0)
                                 }
                                 if (wallTypePr === 0) {
-                                  setWallTypePr(7)
+                                  setWallTypePr(15)
                                 }
                                 setWallType(!wallType)
                               }}
                             >
                               <input
                                 style={
-                                  wallTypePr === 7
+                                  wallTypePr === 15
                                     ? {
                                       background: "#46247c",
                                     }
@@ -875,9 +875,9 @@ const Cost = () => {
                                 if (e === "Стандарт") {
                                   setAddPrice1(0)
                                 } else if (e === "Минимализм") {
-                                  setAddPrice1(15)
+                                  setAddPrice1(20)
                                 } else {
-                                  setAddPrice1(13)
+                                  setAddPrice1(15)
                                 }
                               }}
                             >
@@ -908,10 +908,10 @@ const Cost = () => {
                                 if (e === "Standart") {
                                   setAddPrice1(0)
                                 } else {
-                                  setAddPrice1(13)
+                                  setAddPrice1(15)
                                 }
                                 if (e === "Minimalizm") {
-                                  setAddPrice1(15)
+                                  setAddPrice1(20)
                                 }
                               }}
                             >
