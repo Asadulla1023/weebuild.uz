@@ -33,8 +33,12 @@ const Cost = () => {
   const [counter, setCounter] = useState<number>(1);
   const [val, setVal] = useState<number>(1);
   const [selectedRoom, setSelectedRoom] = useState<number>(1);
+  const [selectedFloor, setSelectedFloor] = useState<number>(1);
+  const [selectedSanu, setSelectedSanu] = useState<number>(1);
   const [selectedRepair, setSelectedRepair] = useState<string>("");
   const [abled, setAbled] = useState(false);
+  const [abled1, setAbled1] = useState(false);
+  const [abled2, setAbled2] = useState(false);
   const [orderOpen, setOrderOpen] = useState(false);
   const [demontajPr, setDemontajPr] = useState<number>(0)
   const [wallTypePr, setWallTypePr] = useState<number>(0)
@@ -73,6 +77,20 @@ const Cost = () => {
   }, [selectedRepair])
   const t = useTranslations("Calculation")
   const path = usePathname()
+  useEffect(()=> {
+    if (abled === true) {
+      setAbled1(false)
+      setAbled2(false)
+    } 
+    if (abled1 === true) {
+      setAbled(false)
+      setAbled2(false)
+    }
+    if (abled2 === true) {
+      setAbled(false)
+      setAbled1(false)
+    }
+  }, [abled, abled1, abled2])
   return (
     <Container id="cost">
       {
@@ -374,29 +392,147 @@ const Cost = () => {
                         </div>
                         <div className={styles.val}>{val}м²</div>
                       </div>
-                      <div className={styles.sect}>
-                        <h4>{t("numberRooms")}</h4>
-                        <div className={styles.selectImageOfLivingRoom}>
-                          {[1, 2, 3, 4, 5, 6].map((iterable: number) => {
-                            return (
-                              <div
-                                key={uuidv4()}
-                                onClick={() => {
-                                  setSelectedRoom(iterable);
-                                }}
-                                className={
-                                  selectedRoom === iterable
-                                    ? `${styles.selectImageS} ${styles.selectImage}`
-                                    : styles.selectImage
+                    </div>
+                    <div className={styles.sectChoose}>
+                        <div className={styles.rooms}>
+                          <h3>{t("numberRooms")}</h3>
+                          <div
+                            onClick={() => {
+                              setAbled(!abled);
+                            }}
+                            className={styles.seletedRooms}
+                          >
+                            {selectedRoom}
+                          </div>
+                          <div
+                            style={
+                              abled === true
+                                ? {
+                                  opacity: 1,
+                                  transition: "0.4s",
+                                  zIndex: 100,
+                                  marginTop: "1rem",
                                 }
-                              >
-                                <p>{iterable}</p>
-                              </div>
-                            );
-                          })}
+                                : {
+                                  opacity: 0,
+                                  transition: "0.4s",
+                                  zIndex: -1000,
+                                }
+                            }
+                            className={styles.selectRoom}
+                          >
+                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50].map((iterable: number) => {
+                              return (
+                                <div
+                                  key={uuidv4()}
+                                  onClick={() => {
+                                    setSelectedRoom(iterable);
+                                  }}
+                                  className={
+                                    selectedRoom === iterable
+                                      ? `${styles.selectImageS} ${styles.selectImage}`
+                                      : styles.selectImage
+                                  }
+                                >
+                                  <p>{iterable}</p>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                        <div className={styles.rooms}>
+                          <h3>{t("numberRooms")}</h3>
+                          <div
+                            onClick={() => {
+                              setAbled1(!abled1);
+                            }}
+                            className={styles.seletedRooms}
+                          >
+                            {selectedFloor}
+                          </div>
+                          <div
+                            style={
+                              abled1 === true
+                                ? {
+                                  opacity: 1,
+                                  transition: "0.4s",
+                                  zIndex: 100,
+                                  marginTop: "1rem",
+                                }
+                                : {
+                                  opacity: 0,
+                                  transition: "0.4s",
+                                  zIndex: -1000,
+                                }
+                            }
+                            className={styles.selectRoom}
+                          >
+                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((iterable: number) => {
+                              return (
+                                <div
+                                  key={uuidv4()}
+                                  onClick={() => {
+                                    setSelectedFloor(iterable);
+                                  }}
+                                  className={
+                                    selectedFloor === iterable
+                                      ? `${styles.selectImageS} ${styles.selectImage}`
+                                      : styles.selectImage
+                                  }
+                                >
+                                  <p>{iterable}</p>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                        <div className={styles.rooms}>
+                          <h3>{t("numberRooms")}</h3>
+                          <div
+                            onClick={() => {
+                              setAbled2(!abled2);
+                            }}
+                            className={styles.seletedRooms}
+                          >
+                            {selectedSanu}
+                          </div>
+                          <div
+                            style={
+                              abled2 === true
+                                ? {
+                                  opacity: 1,
+                                  transition: "0.4s",
+                                  zIndex: 100,
+                                  marginTop: "1rem",
+                                }
+                                : {
+                                  opacity: 0,
+                                  transition: "0.4s",
+                                  zIndex: -1000,
+                                }
+                            }
+                            className={styles.selectRoom}
+                          >
+                            {[1, 2, 3, 4, 5].map((iterable: number) => {
+                              return (
+                                <div
+                                  key={uuidv4()}
+                                  onClick={() => {
+                                    setSelectedSanu(iterable);
+                                  }}
+                                  className={
+                                    selectedSanu === iterable
+                                      ? `${styles.selectImageS} ${styles.selectImage}`
+                                      : styles.selectImage
+                                  }
+                                >
+                                  <p>{iterable}</p>
+                                </div>
+                              );
+                            })}
+                          </div>
                         </div>
                       </div>
-                    </div>
                     <Link href="#cost"
                       className={
                         hovered === true ? styles.animate : styles.noneAnimation

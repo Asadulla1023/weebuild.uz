@@ -38,11 +38,6 @@ export default function Home() {
     }
   }, [isOpen])
   useEffect(() => {
-    setInterval(() => {
-      setIsOpen(true)
-    }, 85000)
-  }, [])
-  useEffect(() => {
     if (path === "/uz") {
       refresh()
     } else {
@@ -143,7 +138,7 @@ export default function Home() {
             }
           </button>
         </div>
-        {isOpen === true && <PopUp isOpen={isOpen} setIsOpen={setIsOpen} />}
+        {/* {isOpen === true && <PopUp isOpen={isOpen} setIsOpen={setIsOpen} />} */}
       </main>
     </>
   )

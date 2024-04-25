@@ -274,6 +274,16 @@
   flex-direction: column;
   gap: 1.5rem;
 }
+.sectChoose {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sectChoose > .rooms {
+  width: 33%;
+  align-items: center;
+  position: relative;
+}
 
 .sect > h4 {
   color: #454545;
@@ -477,6 +487,14 @@
 .checkbox > img, .cardPriceItem > img {
   width: 380px;
   height: 245px;
+}
+
+.sectChoose > .rooms > .selectRoom {
+  position: absolute;
+  top: 7rem;
+  right: 0;
+  left: 0;
+  width: 300px;
 }
 
 .selectRoom {
