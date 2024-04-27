@@ -280,9 +280,14 @@
 }
 
 .sectChoose > .rooms {
-  width: 33%;
+  width: 300px;
   align-items: center;
   position: relative;
+}
+
+.roomCont {
+  display: flex;
+  flex-direction: column;
 }
 
 .sect > h4 {
@@ -489,13 +494,29 @@
   height: 245px;
 }
 
-.sectChoose > .rooms > .selectRoom {
+.sectChoose > .rooms > .selectRoom, .roomCont .selectRoom {
   position: absolute;
   top: 7rem;
   right: 0;
   left: 0;
   width: 300px;
 }
+
+.roomCont > .rooms 
+{
+  position: relative;
+  
+}
+
+.roomCont .selectRoom {
+  top: 7rem;
+}
+
+.roomCont .rooms h3 {
+  margin-bottom: 0.5rem !important;
+  margin-top: 2rem;
+}
+
 
 .selectRoom {
   display: flex;
