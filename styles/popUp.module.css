@@ -108,3 +108,28 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 450px) {
+  .container {
+    width: 90%;
+    height: 300px;
+    padding: 1rem;
+  }
+  .form {
+    gap: 0;
+  }
+  .form > h1 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  .form input, .form textarea {
+    height: 30px;
+    font-size: 0.8rem;
+    outline-width: 2px;
+  }
+  .form button {
+    margin-top: 0.5rem;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+}

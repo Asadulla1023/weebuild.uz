@@ -3,4 +3,5 @@ export default interface ICardPrice {
     title: string
     price: number
     desc: string 
+    sanu: number
 }

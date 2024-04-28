@@ -31,11 +31,17 @@ export default function Home() {
   });
   const path = usePathname()
   useEffect(() => {
+    setInterval(()=> {
+      setIsOpen(true)
+    }, 160000)
     if (isOpen === true) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
+  }, [isOpen])
+  useEffect(()=> {
+
   }, [isOpen])
   useEffect(() => {
     if (path === "/uz") {
@@ -138,7 +144,7 @@ export default function Home() {
             }
           </button>
         </div>
-        {/* {isOpen === true && <PopUp isOpen={isOpen} setIsOpen={setIsOpen} />} */}
+        {isOpen === true && <PopUp isOpen={isOpen} setIsOpen={setIsOpen} />}
       </main>
     </>
   )

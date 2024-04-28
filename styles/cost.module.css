@@ -679,6 +679,9 @@
     font-size: 16px;
     padding: 0;
   }
+  .selectRoom {
+    left: -3rem !important;
+  }
 }
 
 @media screen and (max-width: 670px) {
@@ -776,6 +779,9 @@
   .selection h3 {
     font-size: 25px;
   }
+  .selectRoom {
+    left: 0 !important;
+  }
 
   .checks img {
     width: 100% !important;
@@ -790,6 +796,21 @@
     width: 35px;
     height: 35px;
     font-size: 18px;
+  }
+  .roomCont {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .rooms, .roomCont {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .rooms > .selectRoom {
+    width: 90%;
   }
 }
 

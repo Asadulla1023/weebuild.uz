@@ -73,12 +73,14 @@ const Cost = () => {
   const [addPrice1, setAddPrice1] = useState<number>(0);
   const [addPrice2, setAddPrice2] = useState<number>(0);
   const [addPrice3, setAddPrice3] = useState<number>(0);
+  const [numFl, setNumFl] = useState<number>(0)
   useEffect(() => {
     if (orderOpen === true || characts === true) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
+    console.log(totalPrice)
   }, [orderOpen, characts]);
   useEffect(() => {
     if (prop) {
@@ -120,10 +122,13 @@ const Cost = () => {
       setAbled(false);
       setAbled1(false);
     }
-    if (val > 80) {
-
+    if (val < 80) {
+      setSelectedFloor(1);
     }
-  }, [abled, abled1, abled2,selectedRoom]);
+    if (selectedSanu > 3) {
+      setNumFl(5)
+    }
+  }, [abled, abled1, abled2, selectedRoom, val,selectedSanu]);
   const san1 = [1];
   const san2 = [1, 2, 3, 4, 5, 6];
   return (
@@ -1120,9 +1125,11 @@ const Cost = () => {
                         </div>
                       </div>
                       <div className={styles.rooms}>
-                        <h3>{path === "/uz"
+                        <h3>
+                          {path === "/uz"
                             ? "Sanuzel soni"
-                            : "Количество санузлы"}</h3>
+                            : "Количество санузлы"}
+                        </h3>
                         <div
                           onClick={() => {
                             setAbled1(!abled1);
@@ -1148,25 +1155,39 @@ const Cost = () => {
                           }
                           className={styles.selectRoom}
                         >
-                          {[
-                            1, 2, 3, 4, 5,
-                          ].map((iterable: number) => {
-                            return (
-                              <div
-                                key={uuidv4()}
-                                onClick={() => {
-                                  setSelectedFloor(iterable);
-                                }}
-                                className={
-                                  selectedFloor === iterable
-                                    ? `${styles.selectImageS} ${styles.selectImage}`
-                                    : styles.selectImage
-                                }
-                              >
-                                <p>{iterable}</p>
-                              </div>
-                            );
-                          })}
+                          {val > 80 ? (
+                            [1, 2, 3, 4, 5].map((iterable: number) => {
+                              return (
+                                <div
+                                  key={uuidv4()}
+                                  onClick={() => {
+                                    setSelectedFloor(iterable);
+                                  }}
+                                  className={
+                                    selectedFloor === iterable
+                                      ? `${styles.selectImageS} ${styles.selectImage}`
+                                      : styles.selectImage
+                                  }
+                                >
+                                  <p>{iterable}</p>
+                                </div>
+                              );
+                            })
+                          ) : (
+                            <div
+                              key={uuidv4()}
+                              onClick={() => {
+                                setSelectedFloor(1);
+                              }}
+                              className={
+                                selectedFloor === 1
+                                  ? `${styles.selectImageS} ${styles.selectImage}`
+                                  : styles.selectImage
+                              }
+                            >
+                              <p>{1}</p>
+                            </div>
+                          )}
                         </div>
                       </div>
                       <div className={styles.rooms}>
@@ -1402,7 +1423,9 @@ const Cost = () => {
                                         peregorkiPr * val +
                                         wallTypePr * val +
                                         addPrice2 * val +
-                                        addPrice1 * val
+                                        addPrice1 * val +
+                                        addPrice3 * val +
+                                        prop.sanu * (selectedFloor - 1) + numFl
                                     )
                                   : setTotalPrice(
                                       prop.price * val +
@@ -1410,7 +1433,9 @@ const Cost = () => {
                                         peregorkiPr * val +
                                         wallTypePr * val +
                                         addPrice2 * val +
-                                        addPrice1 * val
+                                        addPrice1 * val +
+                                        prop.sanu * (selectedFloor - 1) +
+                                        addPrice3 * val + numFl
                                     );
                               }}
                             >
@@ -1421,8 +1446,12 @@ const Cost = () => {
                                   peregorkiPr * val +
                                   addPrice2 * val +
                                   addPrice1 * val +
-                                  addPrice3 * val
-                                : prop.price * val + changed}
+                                  addPrice3 * val +
+                                  prop.sanu * (selectedFloor - 1) + numFl
+                                : prop.price * val +
+                                  changed +
+                                  prop.sanu * (selectedFloor - 1) +
+                                  addPrice3 * val + numFl}
                               $
                             </button>
                           </div>
@@ -1472,7 +1501,9 @@ const Cost = () => {
                                     peregorkiPr * val +
                                     wallTypePr * val +
                                     addPrice2 * val +
-                                    addPrice1 * val + addPrice3 * val
+                                    addPrice1 * val +
+                                    addPrice3 * val +
+                                    prop.sanu * (selectedFloor - 1) + numFl
                                 );
                               }}
                             >
@@ -1481,7 +1512,9 @@ const Cost = () => {
                                 peregorkiPr * val +
                                 wallTypePr * val +
                                 addPrice2 * val +
-                                addPrice1 * val+addPrice3 * val}
+                                addPrice1 * val +
+                                addPrice3 * val +
+                                prop.sanu * (selectedFloor - 1) + numFl}
                               $
                             </button>
                           </div>
@@ -1499,6 +1532,8 @@ const Cost = () => {
                   price={props?.price}
                   title={props?.title}
                   orderOpen={orderOpen}
+                  sanu={selectedFloor}
+                  floor={selectedSanu}
                 />
                 <Characteriscs
                   roomType={selectedRoom}

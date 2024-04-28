@@ -298,18 +298,21 @@ export const CARD_PRICE = [
     title: "Бронза от 189$/м²",
     desc: "- Покупка материалов, Выравнивание потолка, стен, Шпаклевание, Отделка стен, потолка, Напольное покрытие, Установка сантехники, Установка розеток/выключателей, Установка карнизов, плинтусов, Уборка мусора, клининг",
     price: 189,
+    sanu: 900
   },
   {
     image: "/images/cardprice1.png",
     title: "Серебро от 219$/м²",
     desc: "- Все работы включенные в стандарт, Материалы более высокого качества, Выравнивание стен по маякам, Демонтажные работы бесплатно",
     price: 219,
+    sanu: 1100
   },
   {
     image: "/images/cardprice2.png",
     title: "Золото от 249$/м²",
     desc: "- Все работы включенные в премиум, Дизайн бесплатно, Дополнительные пожелания заказчика",
     price: 249,
+    sanu: 1300
   },
 ];
 
@@ -618,18 +621,21 @@ export const CARD_PRICE_UZ = [
     title: "Bronza 189$/м² dan",
     desc: "- Materiallarni sotib olish, Shiftni, devorlarni tekislash, Shiftni yopishtirish, Devor va shipni bezash, Pol qoplamasi, Santexnika o'rnatish, Rozetkalar / kalitlarni o'rnatish, Kornişlar, yubka taxtalarini o'rnatish, Chiqindilarni yig'ish, tozalash",
     price: 189,
+    sanu: 900
   },
   {
     image: "/images/cardprice1.png",
     title: "Kumush 219$/м² dan",
     desc: "- Standartga kiritilgan barcha ishlar, Yuqori sifatli materiallar, Mayoqlarda devorlarni tekislash, Demontaj ishlari bepul",
     price: 219,
+    sanu: 1100
   },
   {
     image: "/images/cardprice2.png",
     title: "Oltin 249$/м² dan",
     desc: "- Premiumga kiritilgan barcha ishlar, bepul dizayn, mijozning qo'shimcha istaklari",
     price: 249,
+    sanu: 1300
   },
 ];
 

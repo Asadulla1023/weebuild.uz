@@ -13,19 +13,21 @@ interface IOrderProps {
     design: boolean
     totalArea: string
     totalPrice: number
+    sanu: number
+    floor: number
 }
 
 import { props_uz as PROPS_UZ } from "@/constant/index"
 import { props_ru as PROPS_RU } from "@/constant/index"
 import { useEffect, useState } from "react"
 
-const OrderModal = ({ title, price, orderOpen, setOrderOpen, roomType, addService, design, repStyle, totalArea, totalPrice }: IOrderProps) => {
+const OrderModal = ({ title, price, orderOpen, setOrderOpen, roomType, addService, design, repStyle, totalArea, totalPrice, floor, sanu }: IOrderProps) => {
     const path = usePathname()
     const handleSubmit = (e: React.FormEvent<HTMLFormElement> | any): void => {
         e.preventDefault()
         const data = new FormData(e.target)
         const obj = Object.fromEntries(data.entries())
-        const send = `name: ${obj.name}%0Aphone-number: ${obj.phoneNumber}%0Aselected-title: ${title}%0Aprice: ${totalPrice}$%0Arooms: ${roomType}%0Aadditional-service: ${addService}%0Adesign: ${design === true ? "necessary" : "unnecessary"}%0Arepair-style: ${repStyle}%0Atotal-area: ${totalArea}`
+        const send = `name: ${obj.name}%0Aphone-number: ${obj.phoneNumber}%0Aselected-title: ${title}%0Aprice: ${totalPrice}$%0Arooms: ${roomType}%0Aadditional-service: ${addService}%0Adesign: ${design === true ? "necessary" : "unnecessary"}%0Arepair-style: ${repStyle}%0Atotal-area: ${totalArea}%0Afloor: ${floor}%0Asanuzl/bathroom: ${sanu}`
         axios({
             method: "post",
             url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-968558065&text=${send}`
