@@ -73,14 +73,13 @@ const Cost = () => {
   const [addPrice1, setAddPrice1] = useState<number>(0);
   const [addPrice2, setAddPrice2] = useState<number>(0);
   const [addPrice3, setAddPrice3] = useState<number>(0);
-  const [numFl, setNumFl] = useState<number>(0)
+  const [numFl, setNumFl] = useState<number>(0);
   useEffect(() => {
     if (orderOpen === true || characts === true) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-    console.log(totalPrice)
   }, [orderOpen, characts]);
   useEffect(() => {
     if (prop) {
@@ -126,11 +125,31 @@ const Cost = () => {
       setSelectedFloor(1);
     }
     if (selectedSanu > 3) {
-      setNumFl(5)
+      setNumFl(5);
     }
-  }, [abled, abled1, abled2, selectedRoom, val,selectedSanu]);
-  const san1 = [1];
-  const san2 = [1, 2, 3, 4, 5, 6];
+  }, [abled, abled1, abled2, selectedRoom, val, selectedSanu]);
+
+  const limitHandle = (
+    e: {
+      currentTarget: {
+        value: string;
+      };
+    },
+    n: number,
+    setter: Function
+  ) => {
+    const test = /d/.test(e.currentTarget.value);
+    if (0 <= +e.currentTarget.value) {
+      setter(+e.currentTarget.value);
+      if (+e.currentTarget.value > n) {
+        setter(n);
+      }
+    } else {
+      // setSelectedRoom()
+      console.log("kot");
+    }
+  };
+
   return (
     <Container id="cost">
       {
@@ -262,7 +281,7 @@ const Cost = () => {
                                   : styles.checkbox
                               }
                               onClick={() => {
-                                setPeregorkiPr(15);
+                                setPeregorkiPr(20);
                                 setPeregorki(!peregorki);
                               }}
                             >
@@ -320,7 +339,7 @@ const Cost = () => {
                             }
                             onClick={() => {
                               setPeregorki(!peregorki);
-                              setPeregorkiPr(15);
+                              setPeregorkiPr(20);
                             }}
                           >
                             <Image
@@ -463,51 +482,16 @@ const Cost = () => {
                     <div className={styles.sectChoose}>
                       <div className={styles.rooms}>
                         <h3>{t("numberRooms")}</h3>
-                        <div
-                          onClick={() => {
-                            setAbled(!abled);
+                        <input
+                          onChange={(e) => {
+                            limitHandle(e, 15, setSelectedRoom);
                           }}
                           className={styles.seletedRooms}
-                        >
-                          {selectedRoom}
-                        </div>
-                        <div
-                          style={
-                            abled === true
-                              ? {
-                                  opacity: 1,
-                                  transition: "0.4s",
-                                  zIndex: 100,
-                                  marginTop: "1rem",
-                                }
-                              : {
-                                  opacity: 0,
-                                  transition: "0.4s",
-                                  zIndex: -1000,
-                                }
-                          }
-                          className={styles.selectRoom}
-                        >
-                          {[
-                            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-                          ].map((iterable: number) => {
-                            return (
-                              <div
-                                key={uuidv4()}
-                                onClick={() => {
-                                  setSelectedRoom(iterable);
-                                }}
-                                className={
-                                  selectedRoom === iterable
-                                    ? `${styles.selectImageS} ${styles.selectImage}`
-                                    : styles.selectImage
-                                }
-                              >
-                                <p>{iterable}</p>
-                              </div>
-                            );
-                          })}
-                        </div>
+                          value={selectedRoom}
+                          maxLength={2}
+                          max={50}
+                          type="tel"
+                        />
                       </div>
                       <div className={styles.rooms}>
                         <h3>
@@ -515,116 +499,33 @@ const Cost = () => {
                             ? "Sanuzel soni"
                             : "Количество санузлы"}
                         </h3>
-                        <div
-                          onClick={() => {
-                            setAbled1(!abled1);
+                        <input
+                          onChange={(e) => {
+                            if (val < 81) {
+                              setSelectedFloor(1);
+                            } else {
+                              limitHandle(e, 5, setSelectedFloor);
+                            }
                           }}
                           className={styles.seletedRooms}
-                        >
-                          {selectedFloor}
-                        </div>
-                        <div
-                          style={
-                            abled1 === true
-                              ? {
-                                  opacity: 1,
-                                  transition: "0.4s",
-                                  zIndex: 100,
-                                  marginTop: "1rem",
-                                }
-                              : {
-                                  opacity: 0,
-                                  transition: "0.4s",
-                                  zIndex: -1000,
-                                }
-                          }
-                          className={styles.selectRoom}
-                        >
-                          {val < 81 ? (
-                            <div
-                              key={uuidv4()}
-                              onClick={() => {
-                                setSelectedFloor(1);
-                              }}
-                              className={
-                                selectedFloor === 1
-                                  ? `${styles.selectImageS} ${styles.selectImage}`
-                                  : styles.selectImage
-                              }
-                            >
-                              <p>{1}</p>
-                            </div>
-                          ) : (
-                            [1, 2, 3, 4, 5].map((iterable: number) => {
-                              return (
-                                <div
-                                  key={uuidv4()}
-                                  onClick={() => {
-                                    setSelectedFloor(iterable);
-                                  }}
-                                  className={
-                                    selectedFloor === iterable
-                                      ? `${styles.selectImageS} ${styles.selectImage}`
-                                      : styles.selectImage
-                                  }
-                                >
-                                  <p>{iterable}</p>
-                                </div>
-                              );
-                            })
-                          )}
-                        </div>
+                          value={selectedFloor}
+                          maxLength={2}
+                          max={50}
+                          type="tel"
+                        />
                       </div>
                       <div className={styles.rooms}>
                         <h3>{path === "/uz" ? "Bino qavati" : "Этаж"}</h3>
-                        <div
-                          onClick={() => {
-                            setAbled2(!abled2);
+                        <input
+                          onChange={(e) => {
+                            limitHandle(e, 50, setSelectedSanu);
                           }}
                           className={styles.seletedRooms}
-                        >
-                          {selectedSanu}
-                        </div>
-                        <div
-                          style={
-                            abled2 === true
-                              ? {
-                                  opacity: 1,
-                                  transition: "0.4s",
-                                  zIndex: 100,
-                                  marginTop: "1rem",
-                                }
-                              : {
-                                  opacity: 0,
-                                  transition: "0.4s",
-                                  zIndex: -1000,
-                                }
-                          }
-                          className={styles.selectRoom}
-                        >
-                          {[
-                            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-                            16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-                            29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
-                            42, 43, 44, 45, 46, 47, 48, 49, 50,
-                          ].map((iterable: number) => {
-                            return (
-                              <div
-                                key={uuidv4()}
-                                onClick={() => {
-                                  setSelectedSanu(iterable);
-                                }}
-                                className={
-                                  selectedSanu === iterable
-                                    ? `${styles.selectImageS} ${styles.selectImage}`
-                                    : styles.selectImage
-                                }
-                              >
-                                <p>{iterable}</p>
-                              </div>
-                            );
-                          })}
-                        </div>
+                          value={selectedSanu}
+                          maxLength={2}
+                          max={50}
+                          type="tel"
+                        />
                       </div>
                     </div>
                     <Link
@@ -941,18 +842,18 @@ const Cost = () => {
                             <div
                               className={styles.checkboxInput}
                               onClick={() => {
-                                if (peregorkiPr === 15) {
+                                if (peregorkiPr === 20) {
                                   setPeregorkiPr(0);
                                 }
                                 if (peregorkiPr === 0) {
-                                  setPeregorkiPr(15);
+                                  setPeregorkiPr(20);
                                 }
                                 setPeregorki(!peregorki);
                               }}
                             >
                               <input
                                 style={
-                                  peregorkiPr === 15
+                                  peregorkiPr === 20
                                     ? {
                                         background: "#46247c",
                                       }
@@ -1008,15 +909,15 @@ const Cost = () => {
                               <input
                                 onClick={() => {
                                   setPeregorki(!peregorki);
-                                  if (peregorkiPr === 15) {
+                                  if (peregorkiPr === 20) {
                                     setPeregorkiPr(0);
                                   }
                                   if (peregorkiPr === 0) {
-                                    setPeregorkiPr(15);
+                                    setPeregorkiPr(20);
                                   }
                                 }}
                                 style={
-                                  peregorkiPr === 15
+                                  peregorkiPr === 20
                                     ? {
                                         background: "#46247c",
                                       }
@@ -1078,51 +979,16 @@ const Cost = () => {
                     <div className={styles.roomCont}>
                       <div className={styles.rooms}>
                         <h3>{t("numberRooms")}</h3>
-                        <div
-                          onClick={() => {
-                            setAbled(!abled);
+                        <input
+                          onChange={(e) => {
+                            limitHandle(e, 15, setSelectedRoom);
                           }}
                           className={styles.seletedRooms}
-                        >
-                          {selectedRoom}
-                        </div>
-                        <div
-                          style={
-                            abled === true
-                              ? {
-                                  opacity: 1,
-                                  transition: "0.4s",
-                                  zIndex: 100,
-                                  marginTop: "1rem",
-                                }
-                              : {
-                                  opacity: 0,
-                                  transition: "0.4s",
-                                  zIndex: -1000,
-                                }
-                          }
-                          className={styles.selectRoom}
-                        >
-                          {[
-                            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-                          ].map((iterable: number) => {
-                            return (
-                              <div
-                                key={uuidv4()}
-                                onClick={() => {
-                                  setSelectedRoom(iterable);
-                                }}
-                                className={
-                                  selectedRoom === iterable
-                                    ? `${styles.selectImageS} ${styles.selectImage}`
-                                    : styles.selectImage
-                                }
-                              >
-                                <p>{iterable}</p>
-                              </div>
-                            );
-                          })}
-                        </div>
+                          value={selectedRoom}
+                          maxLength={2}
+                          max={50}
+                          type="tel"
+                        />
                       </div>
                       <div className={styles.rooms}>
                         <h3>
@@ -1130,116 +996,33 @@ const Cost = () => {
                             ? "Sanuzel soni"
                             : "Количество санузлы"}
                         </h3>
-                        <div
-                          onClick={() => {
-                            setAbled1(!abled1);
+                        <input
+                          onChange={(e) => {
+                            if (val < 81) {
+                              setSelectedFloor(1);
+                            } else {
+                              limitHandle(e, 5, setSelectedFloor);
+                            }
                           }}
                           className={styles.seletedRooms}
-                        >
-                          {selectedFloor}
-                        </div>
-                        <div
-                          style={
-                            abled1 === true
-                              ? {
-                                  opacity: 1,
-                                  transition: "0.4s",
-                                  zIndex: 100,
-                                  marginTop: "1rem",
-                                }
-                              : {
-                                  opacity: 0,
-                                  transition: "0.4s",
-                                  zIndex: -1000,
-                                }
-                          }
-                          className={styles.selectRoom}
-                        >
-                          {val > 80 ? (
-                            [1, 2, 3, 4, 5].map((iterable: number) => {
-                              return (
-                                <div
-                                  key={uuidv4()}
-                                  onClick={() => {
-                                    setSelectedFloor(iterable);
-                                  }}
-                                  className={
-                                    selectedFloor === iterable
-                                      ? `${styles.selectImageS} ${styles.selectImage}`
-                                      : styles.selectImage
-                                  }
-                                >
-                                  <p>{iterable}</p>
-                                </div>
-                              );
-                            })
-                          ) : (
-                            <div
-                              key={uuidv4()}
-                              onClick={() => {
-                                setSelectedFloor(1);
-                              }}
-                              className={
-                                selectedFloor === 1
-                                  ? `${styles.selectImageS} ${styles.selectImage}`
-                                  : styles.selectImage
-                              }
-                            >
-                              <p>{1}</p>
-                            </div>
-                          )}
-                        </div>
+                          value={selectedFloor}
+                          maxLength={2}
+                          max={50}
+                          type="tel"
+                        />
                       </div>
                       <div className={styles.rooms}>
                         <h3>{path === "/uz" ? "Bino qavati" : "Этаж"}</h3>
-                        <div
-                          onClick={() => {
-                            setAbled2(!abled2);
+                        <input
+                          onChange={(e) => {
+                            limitHandle(e, 50, setSelectedSanu);
                           }}
                           className={styles.seletedRooms}
-                        >
-                          {selectedSanu}
-                        </div>
-                        <div
-                          style={
-                            abled2 === true
-                              ? {
-                                  opacity: 1,
-                                  transition: "0.4s",
-                                  zIndex: 100,
-                                  marginTop: "1rem",
-                                }
-                              : {
-                                  opacity: 0,
-                                  transition: "0.4s",
-                                  zIndex: -1000,
-                                }
-                          }
-                          className={styles.selectRoom}
-                        >
-                          {[
-                            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-                            16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-                            29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
-                            42, 43, 44, 45, 46, 47, 48, 49, 50,
-                          ].map((iterable: number) => {
-                            return (
-                              <div
-                                key={uuidv4()}
-                                onClick={() => {
-                                  setSelectedSanu(iterable);
-                                }}
-                                className={
-                                  selectedSanu === iterable
-                                    ? `${styles.selectImageS} ${styles.selectImage}`
-                                    : styles.selectImage
-                                }
-                              >
-                                <p>{iterable}</p>
-                              </div>
-                            );
-                          })}
-                        </div>
+                          value={selectedSanu}
+                          maxLength={2}
+                          max={50}
+                          type="tel"
+                        />
                       </div>
                     </div>
                     <div className={styles.roomType}>
@@ -1425,7 +1208,8 @@ const Cost = () => {
                                         addPrice2 * val +
                                         addPrice1 * val +
                                         addPrice3 * val +
-                                        prop.sanu * (selectedFloor - 1) + numFl
+                                        prop.sanu * (selectedFloor - 1) +
+                                        numFl
                                     )
                                   : setTotalPrice(
                                       prop.price * val +
@@ -1435,7 +1219,8 @@ const Cost = () => {
                                         addPrice2 * val +
                                         addPrice1 * val +
                                         prop.sanu * (selectedFloor - 1) +
-                                        addPrice3 * val + numFl
+                                        addPrice3 * val +
+                                        numFl
                                     );
                               }}
                             >
@@ -1447,11 +1232,13 @@ const Cost = () => {
                                   addPrice2 * val +
                                   addPrice1 * val +
                                   addPrice3 * val +
-                                  prop.sanu * (selectedFloor - 1) + numFl
+                                  prop.sanu * (selectedFloor - 1) +
+                                  numFl
                                 : prop.price * val +
                                   changed +
                                   prop.sanu * (selectedFloor - 1) +
-                                  addPrice3 * val + numFl}
+                                  addPrice3 * val +
+                                  numFl}
                               $
                             </button>
                           </div>
@@ -1503,7 +1290,8 @@ const Cost = () => {
                                     addPrice2 * val +
                                     addPrice1 * val +
                                     addPrice3 * val +
-                                    prop.sanu * (selectedFloor - 1) + numFl
+                                    prop.sanu * (selectedFloor - 1) +
+                                    numFl
                                 );
                               }}
                             >
@@ -1514,7 +1302,8 @@ const Cost = () => {
                                 addPrice2 * val +
                                 addPrice1 * val +
                                 addPrice3 * val +
-                                prop.sanu * (selectedFloor - 1) + numFl}
+                                prop.sanu * (selectedFloor - 1) +
+                                numFl}
                               $
                             </button>
                           </div>

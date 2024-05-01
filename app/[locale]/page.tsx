@@ -30,16 +30,16 @@ export default function Home() {
     restDelta: 0.001
   });
   const path = usePathname()
-  useEffect(() => {
-    setInterval(()=> {
-      setIsOpen(true)
-    }, 160000)
-    if (isOpen === true) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [isOpen])
+  // useEffect(() => {
+  //   setInterval(()=> {
+  //     setIsOpen(true)
+  //   }, 160000)
+  //   if (isOpen === true) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "";
+  //   }
+  // }, [isOpen])
   useEffect(()=> {
 
   }, [isOpen])
