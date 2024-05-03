@@ -73,6 +73,7 @@ const Cost = () => {
   const [addPrice1, setAddPrice1] = useState<number>(0);
   const [addPrice2, setAddPrice2] = useState<number>(0);
   const [addPrice3, setAddPrice3] = useState<number>(0);
+  const [sanuzel, setSanuzel] = useState<number>(0)
   const [numFl, setNumFl] = useState<number>(0);
   useEffect(() => {
     if (orderOpen === true || characts === true) {
@@ -121,11 +122,32 @@ const Cost = () => {
       setAbled(false);
       setAbled1(false);
     }
-    if (val < 80) {
-      setSelectedFloor(1);
-    }
     if (selectedSanu > 3) {
       setNumFl(5);
+    }
+    if (selectedSanu < 3 ) {
+      setNumFl(0)
+    }
+    if (val <= 80) {
+      setSanuzel(1)
+    }
+    if (val > 81 && val <= 110) {
+      setSanuzel(2)
+    }
+    if (val > 110 && val <= 150) {
+      setSanuzel(3)
+    }
+    if (val > 150 && val <=200) {
+      setSanuzel(4)
+    }
+    if (val > 200 && val <=250) {
+      setSanuzel(5)
+    }
+    if (val > 250 && val <=300) {
+      setSanuzel(6)
+    }
+    if (val > 300 && val <=250) {
+      setSanuzel(7)
     }
   }, [abled, abled1, abled2, selectedRoom, val, selectedSanu]);
 
@@ -504,7 +526,7 @@ const Cost = () => {
                             if (val < 81) {
                               setSelectedFloor(1);
                             } else {
-                              limitHandle(e, 5, setSelectedFloor);
+                              limitHandle(e, 10, setSelectedFloor);
                             }
                           }}
                           className={styles.seletedRooms}
@@ -998,11 +1020,7 @@ const Cost = () => {
                         </h3>
                         <input
                           onChange={(e) => {
-                            if (val < 81) {
-                              setSelectedFloor(1);
-                            } else {
-                              limitHandle(e, 5, setSelectedFloor);
-                            }
+                              limitHandle(e, 10, setSelectedFloor);
                           }}
                           className={styles.seletedRooms}
                           value={selectedFloor}
@@ -1208,7 +1226,7 @@ const Cost = () => {
                                         addPrice2 * val +
                                         addPrice1 * val +
                                         addPrice3 * val +
-                                        prop.sanu * (selectedFloor - 1) +
+                                        prop.sanu * (selectedFloor - sanuzel) +
                                         numFl
                                     )
                                   : setTotalPrice(
@@ -1218,7 +1236,7 @@ const Cost = () => {
                                         wallTypePr * val +
                                         addPrice2 * val +
                                         addPrice1 * val +
-                                        prop.sanu * (selectedFloor - 1) +
+                                        prop.sanu * (selectedFloor - sanuzel) +
                                         addPrice3 * val +
                                         numFl
                                     );
@@ -1232,11 +1250,11 @@ const Cost = () => {
                                   addPrice2 * val +
                                   addPrice1 * val +
                                   addPrice3 * val +
-                                  prop.sanu * (selectedFloor - 1) +
+                                  prop.sanu * (selectedFloor - sanuzel) +
                                   numFl
                                 : prop.price * val +
                                   changed +
-                                  prop.sanu * (selectedFloor - 1) +
+                                  prop.sanu * (selectedFloor - sanuzel) +
                                   addPrice3 * val +
                                   numFl}
                               $
@@ -1290,7 +1308,7 @@ const Cost = () => {
                                     addPrice2 * val +
                                     addPrice1 * val +
                                     addPrice3 * val +
-                                    prop.sanu * (selectedFloor - 1) +
+                                    prop.sanu * (selectedFloor - sanuzel) +
                                     numFl
                                 );
                               }}
@@ -1302,7 +1320,7 @@ const Cost = () => {
                                 addPrice2 * val +
                                 addPrice1 * val +
                                 addPrice3 * val +
-                                prop.sanu * (selectedFloor - 1) +
+                                prop.sanu * (selectedFloor - sanuzel) +
                                 numFl}
                               $
                             </button>

@@ -14,9 +14,7 @@ import Faq from "./components/local/Faq";
 import Footer from "./components/global/Footer";
 import Contact from "./components/local/Contact";
 import { useEffect, useState } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { motion, useScroll, useSpring } from "framer-motion";import { usePathname, useRouter } from "next/navigation";
 import PopUp from "./components/local/PopUp";
 export default function Home() {
   const t = useTranslations("Header");
