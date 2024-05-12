@@ -73,8 +73,9 @@ const Cost = () => {
   const [addPrice1, setAddPrice1] = useState<number>(0);
   const [addPrice2, setAddPrice2] = useState<number>(0);
   const [addPrice3, setAddPrice3] = useState<number>(0);
-  const [sanuzel, setSanuzel] = useState<number>(0)
+  const [sanuzel, setSanuzel] = useState<number>(0);
   const [numFl, setNumFl] = useState<number>(0);
+  const [able, setAble] = useState<boolean>(true);
   useEffect(() => {
     if (orderOpen === true || characts === true) {
       document.body.style.overflow = "hidden";
@@ -123,34 +124,36 @@ const Cost = () => {
       setAbled1(false);
     }
     if (selectedSanu > 3) {
-      setNumFl(5);
+      setNumFl(selectedSanu - 3);
     }
-    if (selectedSanu < 3 ) {
-      setNumFl(0)
+    if (selectedSanu < 3) {
+      setNumFl(0);
+    }
+    if (selectedFloor === 0) {
+      setAble(!able);
     }
     if (val <= 80) {
-      setSanuzel(1)
+      setSanuzel(1);
     }
     if (val > 81 && val <= 110) {
-      setSanuzel(2)
+      setSanuzel(2);
     }
     if (val > 110 && val <= 150) {
-      setSanuzel(3)
+      setSanuzel(3);
     }
-    if (val > 150 && val <=200) {
-      setSanuzel(4)
+    if (val > 150 && val <= 200) {
+      setSanuzel(4);
     }
-    if (val > 200 && val <=250) {
-      setSanuzel(5)
+    if (val > 200 && val <= 250) {
+      setSanuzel(5);
     }
-    if (val > 250 && val <=300) {
-      setSanuzel(6)
+    if (val > 250 && val <= 300) {
+      setSanuzel(6);
     }
-    if (val > 300 && val <=250) {
-      setSanuzel(7)
+    if (val > 300 && val <= 250) {
+      setSanuzel(7);
     }
-  }, [abled, abled1, abled2, selectedRoom, val, selectedSanu]);
-
+  }, [abled, abled1, abled2, selectedRoom, val, selectedSanu, selectedFloor]);
   const limitHandle = (
     e: {
       currentTarget: {
@@ -523,11 +526,7 @@ const Cost = () => {
                         </h3>
                         <input
                           onChange={(e) => {
-                            if (val < 81) {
-                              setSelectedFloor(1);
-                            } else {
-                              limitHandle(e, 10, setSelectedFloor);
-                            }
+                            limitHandle(e, 10, setSelectedFloor);
                           }}
                           className={styles.seletedRooms}
                           value={selectedFloor}
@@ -1020,7 +1019,7 @@ const Cost = () => {
                         </h3>
                         <input
                           onChange={(e) => {
-                              limitHandle(e, 10, setSelectedFloor);
+                            limitHandle(e, 10, setSelectedFloor);
                           }}
                           className={styles.seletedRooms}
                           value={selectedFloor}
@@ -1227,7 +1226,7 @@ const Cost = () => {
                                         addPrice1 * val +
                                         addPrice3 * val +
                                         prop.sanu * (selectedFloor - sanuzel) +
-                                        numFl
+                                        numFl*5*val
                                     )
                                   : setTotalPrice(
                                       prop.price * val +
@@ -1238,7 +1237,7 @@ const Cost = () => {
                                         addPrice1 * val +
                                         prop.sanu * (selectedFloor - sanuzel) +
                                         addPrice3 * val +
-                                        numFl
+                                        numFl*5*val
                                     );
                               }}
                             >
@@ -1251,12 +1250,12 @@ const Cost = () => {
                                   addPrice1 * val +
                                   addPrice3 * val +
                                   prop.sanu * (selectedFloor - sanuzel) +
-                                  numFl
+                                  numFl*5*val
                                 : prop.price * val +
                                   changed +
                                   prop.sanu * (selectedFloor - sanuzel) +
                                   addPrice3 * val +
-                                  numFl}
+                                  numFl*5*val}
                               $
                             </button>
                           </div>
@@ -1309,7 +1308,7 @@ const Cost = () => {
                                     addPrice1 * val +
                                     addPrice3 * val +
                                     prop.sanu * (selectedFloor - sanuzel) +
-                                    numFl
+                                    numFl*5*val
                                 );
                               }}
                             >
@@ -1321,7 +1320,7 @@ const Cost = () => {
                                 addPrice1 * val +
                                 addPrice3 * val +
                                 prop.sanu * (selectedFloor - sanuzel) +
-                                numFl}
+                                numFl*5*val}
                               $
                             </button>
                           </div>
