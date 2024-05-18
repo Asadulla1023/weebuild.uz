@@ -124,7 +124,7 @@ const Cost = () => {
       setAbled1(false);
     }
     if (selectedSanu > 3) {
-      setNumFl(selectedSanu - 3);
+      setNumFl(5);
     }
     if (selectedSanu < 3) {
       setNumFl(0);
@@ -132,26 +132,59 @@ const Cost = () => {
     if (selectedFloor === 0) {
       setAble(!able);
     }
-    if (val <= 80) {
-      setSanuzel(1);
-    }
-    if (val > 81 && val <= 110) {
-      setSanuzel(2);
-    }
-    if (val > 110 && val <= 150) {
-      setSanuzel(3);
-    }
-    if (val > 150 && val <= 200) {
-      setSanuzel(4);
-    }
-    if (val > 200 && val <= 250) {
-      setSanuzel(5);
-    }
-    if (val > 250 && val <= 300) {
-      setSanuzel(6);
-    }
-    if (val > 300 && val <= 250) {
-      setSanuzel(7);
+    // if (val <= 80 && selectedFloor === 1) {
+    //   setSanuzel(0);
+    // }
+    if (selectedFloor > 0) {
+      if (selectedFloor === 1) {
+        setSanuzel(1);
+      }
+      if (val <= 80) {
+        setSanuzel(1);
+        console.log(selectedFloor);
+      }
+      if (val >= 81) {
+        if (val <= 110) setSanuzel(2);
+      }
+      if (val > 110) {
+        if (selectedFloor === 1) {
+          setSanuzel(1);
+        } else if (selectedFloor === 2) {
+          setSanuzel(2);
+        } else setSanuzel(3);
+      }
+      if (val > 150) {
+        if (selectedFloor === 1) setSanuzel(1);
+        else if (selectedFloor === 2) setSanuzel(2);
+        else if (selectedFloor === 3) setSanuzel(3);
+        else setSanuzel(4);
+      }
+      if (val > 200) {
+        if (selectedFloor === 1) setSanuzel(1);
+        else if (selectedFloor === 2) setSanuzel(2);
+        else if (selectedFloor === 3) setSanuzel(3);
+        else if (selectedFloor === 4) setSanuzel(4);
+        else setSanuzel(5);
+      }
+      if (val > 250) {
+        if (selectedFloor === 1) setSanuzel(1);
+        else if (selectedFloor === 2) setSanuzel(2);
+        else if (selectedFloor === 3) setSanuzel(3);
+        else if (selectedFloor === 4) setSanuzel(4);
+        else if (selectedFloor === 5) setSanuzel(5);
+        else setSanuzel(6);
+      }
+      if (val > 300) {
+        if (selectedFloor === 1) setSanuzel(1);
+        else if (selectedFloor === 2) setSanuzel(2);
+        else if (selectedFloor === 3) setSanuzel(3);
+        else if (selectedFloor === 4) setSanuzel(4);
+        else if (selectedFloor === 5) setSanuzel(5);
+        else if (selectedFloor === 6) setSanuzel(6);
+        else setSanuzel(7);
+      }
+    } else {
+      setSanuzel(0);
     }
   }, [abled, abled1, abled2, selectedRoom, val, selectedSanu, selectedFloor]);
   const limitHandle = (
@@ -1226,7 +1259,7 @@ const Cost = () => {
                                         addPrice1 * val +
                                         addPrice3 * val +
                                         prop.sanu * (selectedFloor - sanuzel) +
-                                        numFl*5*val
+                                        numFl * val
                                     )
                                   : setTotalPrice(
                                       prop.price * val +
@@ -1237,7 +1270,7 @@ const Cost = () => {
                                         addPrice1 * val +
                                         prop.sanu * (selectedFloor - sanuzel) +
                                         addPrice3 * val +
-                                        numFl*5*val
+                                        numFl * val
                                     );
                               }}
                             >
@@ -1250,12 +1283,12 @@ const Cost = () => {
                                   addPrice1 * val +
                                   addPrice3 * val +
                                   prop.sanu * (selectedFloor - sanuzel) +
-                                  numFl*5*val
+                                  numFl * val
                                 : prop.price * val +
                                   changed +
                                   prop.sanu * (selectedFloor - sanuzel) +
                                   addPrice3 * val +
-                                  numFl*5*val}
+                                  numFl * val}
                               $
                             </button>
                           </div>
@@ -1308,7 +1341,7 @@ const Cost = () => {
                                     addPrice1 * val +
                                     addPrice3 * val +
                                     prop.sanu * (selectedFloor - sanuzel) +
-                                    numFl*5*val
+                                    numFl * val
                                 );
                               }}
                             >
@@ -1320,7 +1353,7 @@ const Cost = () => {
                                 addPrice1 * val +
                                 addPrice3 * val +
                                 prop.sanu * (selectedFloor - sanuzel) +
-                                numFl*5*val}
+                                numFl * val}
                               $
                             </button>
                           </div>
