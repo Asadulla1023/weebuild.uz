@@ -30,8 +30,8 @@ const OrderModal = ({ title, price, orderOpen, setOrderOpen, roomType, addServic
         const send = `name: ${obj.name}%0Aphone-number: ${obj.phoneNumber}%0Aselected-title: ${title}%0Aprice: ${totalPrice}$%0Arooms: ${roomType}%0Aadditional-service: ${addService}%0Adesign: ${design === true ? "necessary" : "unnecessary"}%0Arepair-style: ${repStyle}%0Atotal-area: ${totalArea}%0Afloor: ${floor}%0Asanuzl/bathroom: ${sanu}`
         axios({
             method: "post",
-            url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-968558065&text=${send}`
-        }).then(res => console.log(res.data)).catch(err => console.log(err))
+            url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-4285083557&text=${send}`
+        })
         setOrderOpen(!orderOpen)
     }
     const [props, setProps] = useState<{
