@@ -141,7 +141,6 @@ const Cost = () => {
       }
       if (val <= 80) {
         setSanuzel(1);
-        console.log(selectedFloor);
       }
       if (val >= 81) {
         if (val <= 110) setSanuzel(2);
@@ -202,9 +201,6 @@ const Cost = () => {
       if (+e.currentTarget.value > n) {
         setter(n);
       }
-    } else {
-      // setSelectedRoom()
-      console.log("kot");
     }
   };
 
@@ -364,7 +360,6 @@ const Cost = () => {
                                   : styles.checkbox
                               }
                               onClick={() => {
-                                console.log(wallTypePr);
                                 if (wallTypePr === 15) {
                                   setWallTypePr(0);
                                 } else {
@@ -716,8 +711,6 @@ const Cost = () => {
                                   }
                                   if (e === "Minimalizm") {
                                     setAddPrice1(20);
-                                    console.log("wefwef");
-                                    console.log(addPrice1);
                                   }
                                   if (e === ads3_uz[2]) {
                                     setAddPrice(15);
