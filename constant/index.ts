@@ -633,7 +633,7 @@ export const CARD_PRICE_UZ = [
   {
     image: "/images/cardprice2.png",
     title: "Oltin 299$/м² dan",
-    desc: "- Premiumga kiritilgan barcha ishlar, bepul dizayn, mijozning qo'shimcha istaklari",
+    desc: "- Premiumga kiritilgan barcha ishlar, bepul dizayn, mijozning qo'shimcha istaklari ",
     price: 299,
     sanu: 1300
   },
