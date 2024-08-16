@@ -295,21 +295,21 @@ export const NAV_UZ = [
 export const CARD_PRICE = [
   {
     image: "/images/cardprice0.png",
-    title: "Бронза от 189$/м²",
+    title: "Бронза от 199$/м²",
     desc: "- Покупка материалов, Выравнивание потолка, стен, Шпаклевание, Отделка стен, потолка, Напольное покрытие, Установка сантехники, Установка розеток/выключателей, Установка карнизов, плинтусов, Уборка мусора, клининг",
     price: 199,
     sanu: 900
   },
   {
     image: "/images/cardprice1.png",
-    title: "Серебро от 219$/м²",
+    title: "Серебро от 249$/м²",
     desc: "- Все работы включенные в стандарт, Материалы более высокого качества, Выравнивание стен по маякам, Демонтажные работы бесплатно",
     price: 249,
     sanu: 1100
   },
   {
     image: "/images/cardprice2.png",
-    title: "Золото от 249$/м²",
+    title: "Золото от 299$/м²",
     desc: "- Все работы включенные в премиум, Дизайн бесплатно, Дополнительные пожелания заказчика",
     price: 299,
     sanu: 1300
@@ -618,23 +618,23 @@ export const CARD_OBJECT_DESIGN_UZ: ICard[] = [
 export const CARD_PRICE_UZ = [
   {
     image: "/images/cardprice0.png",
-    title: "Bronza 189$/м² dan",
+    title: "Bronza 199$/м² dan",
     desc: "- Materiallarni sotib olish, Shiftni, devorlarni tekislash, Shiftni yopishtirish, Devor va shipni bezash, Pol qoplamasi, Santexnika o'rnatish, Rozetkalar / kalitlarni o'rnatish, Kornişlar, yubka taxtalarini o'rnatish, Chiqindilarni yig'ish, tozalash",
-    price: 189,
+    price: 199,
     sanu: 900
   },
   {
     image: "/images/cardprice1.png",
-    title: "Kumush 219$/м² dan",
+    title: "Kumush 249$/м² dan",
     desc: "- Standartga kiritilgan barcha ishlar, Yuqori sifatli materiallar, Mayoqlarda devorlarni tekislash, Demontaj ishlari bepul",
-    price: 219,
+    price: 249,
     sanu: 1100
   },
   {
     image: "/images/cardprice2.png",
-    title: "Oltin 249$/м² dan",
+    title: "Oltin 299$/м² dan",
     desc: "- Premiumga kiritilgan barcha ishlar, bepul dizayn, mijozning qo'shimcha istaklari",
-    price: 249,
+    price: 299,
     sanu: 1300
   },
 ];
