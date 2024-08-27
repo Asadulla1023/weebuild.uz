@@ -20,7 +20,7 @@ const Contact = () => {
     const send = `email: ${obj.name}%0Anumber: ${obj.phoneNumber}%0Amessage: ${obj.message}`
     axios({
       method: "post",
-      url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-968558065&text=${send}`
+      url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-1002192180985&text=${send}`
     })
     if (name !== "" && phNum !== "" && message !== "") {
       setThnx(!thnx)
