@@ -24,7 +24,7 @@ const PopUp = ({
     }
     axios({
         method: "post",
-        url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-4285083557&text=${send}`
+        url: `https://api.telegram.org/bot6683010545:AAGhQEETPuBY-IVHwppSt3zc2CBEvg4j5o4/sendMessage?chat_id=-1002192180985&text=${send}`
     })
   };
   const t = useTranslations("Contact");
